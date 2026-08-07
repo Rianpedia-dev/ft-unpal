@@ -1,7 +1,9 @@
 import Image from "next/image";
+import StatCounter from "@/components/stat-counter";
 import {
   history,
   visionMission,
+  mottoFakultas,
   tujuanFakultas,
   programStudiList,
   nilaiFakultas,
@@ -13,25 +15,47 @@ import { GlassCard } from "@/components/ui/glass-card";
 export const metadata = {
   title: `Profil | ${siteConfig.name} ${siteConfig.university}`,
   description:
-    "Sejarah, Visi Misi, Tujuan, Program Studi, Nilai-Nilai Fakultas, serta Logo dan Makna Fakultas Teknik Universitas Palembang.",
+    "Sejarah, Motto, Visi Misi, Tujuan, Program Studi, Nilai-Nilai Fakultas, serta Logo dan Makna Fakultas Teknik Universitas Palembang.",
 };
 
 export default function ProfilPage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-16">
+      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Profil Fakultas Teknik
           </h1>
           <p className="text-slate-300 text-base max-w-2xl mx-auto font-light">
-            Mengenal identitas, perjalanan sejarah, arah strategis, program studi, nilai-nilai utama, serta filosofi logo Fakultas Teknik Universitas Palembang.
+            Mengenal identitas, perjalanan sejarah, motto, arah strategis, program studi, nilai-nilai utama, serta filosofi logo Fakultas Teknik Universitas Palembang.
           </p>
         </div>
       </section>
 
-      {/* 1. SEJARAH */}
+      {/* Statistik Fakultas */}
+      <StatCounter />
+
+      {/* 1. MOTTO FAKULTAS */}
+      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        <GlassCard
+          style={{ backgroundColor: "#0F1E2E" }}
+          innerStyle={{ backgroundColor: "#112236", color: "#FFFFFF" }}
+          innerClassName="border border-amber-500/30 p-8 text-center space-y-4 shadow-xl"
+        >
+          <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+            {mottoFakultas.judul}
+          </span>
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-amber-300 leading-tight italic">
+            "{mottoFakultas.motto}"
+          </h2>
+          <p className="text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
+            {mottoFakultas.deskripsi}
+          </p>
+        </GlassCard>
+      </section>
+
+      {/* 2. SEJARAH */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <GlassCard>
           <div className="space-y-6">
@@ -47,16 +71,21 @@ export default function ProfilPage() {
         </GlassCard>
       </section>
 
-      {/* 2. VISI DAN MISI */}
+      {/* 3. VISI DAN MISI */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           {/* Visi */}
           <div className="md:col-span-5 flex">
-            <GlassCard innerClassName="flex flex-col justify-between space-y-6">
+            <GlassCard innerClassName="flex flex-col justify-between space-y-6 w-full">
               <div className="space-y-4">
-                <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C] leading-snug">
+                <div className="border-b border-stone-200/60 pb-3">
+                  <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
+                    Visi Fakultas
+                  </h3>
+                </div>
+                <p className="text-base sm:text-lg font-bold text-stone-800 leading-relaxed">
                   {visionMission.vision}
-                </h3>
+                </p>
               </div>
               <div className="text-xs text-amber-800 font-semibold pt-4 border-t border-stone-200/60">
                 ★ Terakreditasi & Berorientasi Industri
@@ -66,10 +95,10 @@ export default function ProfilPage() {
 
           {/* Misi */}
           <div className="md:col-span-7 flex">
-            <GlassCard innerClassName="space-y-6">
+            <GlassCard innerClassName="space-y-6 w-full">
               <div className="border-b border-stone-200/60 pb-3">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
-                  Pilar Misi Fakultas
+                  Misi Fakultas
                 </h3>
               </div>
               <ul className="space-y-3">
@@ -123,7 +152,7 @@ export default function ProfilPage() {
             Program Studi (S1)
           </h2>
           <p className="text-stone-600 text-sm">
-            Empat program studi pilihan terakreditasi untuk menghasilkan tenaga profesional siap kerja
+            Dua program studi pilihan terakreditasi untuk menghasilkan tenaga profesional siap kerja
           </p>
         </div>
 

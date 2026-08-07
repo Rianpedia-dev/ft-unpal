@@ -3,9 +3,13 @@
 import { statistics } from "@/data/site";
 import { GlassCard } from "@/components/ui/glass-card";
 
-export default function StatCounter() {
+interface StatCounterProps {
+  className?: string;
+}
+
+export default function StatCounter({ className = "" }: StatCounterProps) {
   return (
-    <section className="py-12 bg-white/50 border-y border-amber-900/10">
+    <section className={`py-5 sm:py-6 bg-white/50 border-y border-amber-900/10 ${className}`}>
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
           {statistics.map((stat, idx) => (

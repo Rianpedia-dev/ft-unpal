@@ -47,8 +47,8 @@ export default function HeroSection() {
               <span>BAN-PT</span>
             </div>
             <div>
-              <span className="block font-bold text-amber-400 text-base sm:text-lg">4 Prodi S1</span>
-              <span>Sipil, Mesin, Elektro, Informatika</span>
+              <span className="block font-bold text-amber-400 text-base sm:text-lg">2 Prodi S1</span>
+              <span>Teknik Sipil & Teknik Elektro</span>
             </div>
             <div>
               <span className="block font-bold text-amber-400 text-base sm:text-lg">Lab Modern</span>

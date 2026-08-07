@@ -61,13 +61,7 @@ export default function Footer() {
                 <span className="text-amber-500 text-xs">▸</span> Teknik Sipil
               </li>
               <li className="flex items-center gap-2">
-                <span className="text-amber-500 text-xs">▸</span> Teknik Mesin
-              </li>
-              <li className="flex items-center gap-2">
                 <span className="text-amber-500 text-xs">▸</span> Teknik Elektro
-              </li>
-              <li className="flex items-center gap-2">
-                <span className="text-amber-500 text-xs">▸</span> Teknik Informatika
               </li>
             </ul>
           </div>

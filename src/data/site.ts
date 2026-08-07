@@ -31,7 +31,7 @@ export const deanGreeting = {
 export const statistics = [
   { label: "Mahasiswa Aktif", value: 1250, suffix: "+" },
   { label: "Dosen Tetap", value: 45, suffix: "" },
-  { label: "Program Studi", value: 4, suffix: "" },
+  { label: "Program Studi", value: 2, suffix: "" },
   { label: "Tahun Berdiri", value: 1985, suffix: "" },
 ];
 
@@ -83,6 +83,13 @@ export const visionMission = {
   ],
 };
 
+export const mottoFakultas = {
+  judul: "Motto Fakultas Teknik",
+  motto: "Unggul dalam Ilmu, Inovatif dalam Teknologi, Berdampak bagi Bangsa",
+  deskripsi:
+    "Komitmen Civitas Akademika Fakultas Teknik Universitas Palembang dalam mengembangkan sumber daya manusia teknik yang profesional, berintegritas, dan berwawasan masa depan.",
+};
+
 export const tujuanFakultas = [
   "Menghasilkan lulusan Sarjana Teknik (S.T.) yang memiliki kompetensi akademis tinggi, berjiwa kewirausahaan, dan menjunjung tinggi etika profesi.",
   "Meningkatkan kualitas dan kuantitas publikasi ilmiah serta hak kekayaan intelektual (HKI) berbasis penelitian terapan.",
@@ -102,16 +109,6 @@ export const programStudiList = [
     kaprodi: "Dr. Ir. Hendra Wijaya, M.T.",
   },
   {
-    nama: "Teknik Mesin",
-    jenjang: "S1 (Sarjana Teknik)",
-    akreditasi: "Baik Sekali / B",
-    gelar: "S.T.",
-    deskripsi:
-      "Studi konversi energi, teknik manufaktur, perancangan mekanik, sistem pendingin, dan ilmu material industri.",
-    prospek: "Industri Otomotif, Pembangkit Listrik, Industri Minyak & Gas, Manufaktur, Plant Engineer",
-    kaprodi: "Dr. Agus Prasetyo, S.T., M.T.",
-  },
-  {
     nama: "Teknik Elektro",
     jenjang: "S1 (Sarjana Teknik)",
     akreditasi: "Baik Sekali / B",
@@ -120,16 +117,6 @@ export const programStudiList = [
       "Mempelajari sistem tenaga listrik, arus kuat, energi terbarukan (PLTS), sistem kontrol & robotika, serta telekomunikasi.",
     prospek: "PT PLN, Industri Otomasi & PLC, Renewable Energy Consultant, Telecom Engineer, Embedded System Specialist",
     kaprodi: "Dr. Ir. Dewi Anggraini, M.T.",
-  },
-  {
-    nama: "Teknik Informatika",
-    jenjang: "S1 (Sarjana Teknik)",
-    akreditasi: "Baik Sekali / B",
-    gelar: "S.T.",
-    deskripsi:
-      "Fokus pada kecerdasan buatan (AI), rekayasa perangkat lunak, pengembangan web & mobile, cyber security, dan IoT.",
-    prospek: "Software Engineer, Data Scientist, UI/UX Designer, Cloud & Network Engineer, IT Consultant, Startup Founder",
-    kaprodi: "Dr. Muhammad Rizki, S.Kom., M.Cs.",
   },
 ];
 

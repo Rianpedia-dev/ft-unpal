@@ -1,10 +1,10 @@
+import Image from "next/image";
 import HeroSection from "@/components/hero-section";
 import StatCounter from "@/components/stat-counter";
 import AlumniTestimonialMarquee from "@/components/alumni-marquee";
 import KemitraanSection from "@/components/kemitraan-section";
 import { deanGreeting } from "@/data/site";
 import { beritaFakultas } from "@/data/publications";
-import { gelombangPMB } from "@/data/pmb";
 import { PearlButton } from "@/components/ui/pearl-button";
 import { GlassCard } from "@/components/ui/glass-card";
 
@@ -45,10 +45,10 @@ export default function Home() {
                   PMB 2026/2027 Ongoing
                 </span>
                 <h3 className="text-lg font-bold text-slate-100">
-                  Gelombang 2 Reguler Dibuka
+                  Pendaftaran PMB Dibuka
                 </h3>
                 <p className="text-xs text-slate-300">
-                  Tenggat pendaftaran hingga {gelombangPMB[1].pendaftaran}. Dapatkan beasiswa prestasi & jalur bebas tes.
+                  Penerimaan Mahasiswa Murni & Transisi. Pilihan Kelas Pagi, Sore, dan Akhir Pekan.
                 </p>
                 <div className="pt-2">
                   <PearlButton
@@ -86,10 +86,19 @@ export default function Home() {
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
           {beritaFakultas.map((berita) => (
-            <GlassCard key={berita.id} className="hover:-translate-y-1 transition-transform">
-              <div className="space-y-3 flex flex-col justify-between h-full">
+            <GlassCard key={berita.id} className="hover:-translate-y-1 transition-transform overflow-hidden">
+              <div className="space-y-4 flex flex-col justify-between h-full">
                 <div className="space-y-3">
-                  <div className="flex items-center justify-between">
+                  <div className="relative w-full h-44 rounded-xl overflow-hidden bg-slate-100 border border-stone-200">
+                    <Image
+                      src={berita.gambar}
+                      alt={berita.judul}
+                      fill
+                      className="object-cover transition-transform duration-300 hover:scale-105"
+                      sizes="(max-width: 768px) 100vw, 33vw"
+                    />
+                  </div>
+                  <div className="flex items-center justify-between pt-1">
                     <span className="text-[10px] font-bold uppercase text-amber-900 bg-amber-100 px-2.5 py-1 rounded-full border border-amber-200">
                       {berita.kategori}
                     </span>

@@ -1,25 +1,8 @@
-"use client";
-
-import { useState } from "react";
 import { contactInfo } from "@/data/site";
 import { PearlButton } from "@/components/ui/pearl-button";
 import { GlassCard } from "@/components/ui/glass-card";
 
 export default function KontakPage() {
-  const [formData, setFormData] = useState({
-    nama: "",
-    email: "",
-    subjek: "",
-    pesan: "",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!formData.nama || !formData.email || !formData.pesan) return;
-    setSubmitted(true);
-  };
-
   const socialPlatforms = [
     {
       nama: "Instagram",
@@ -54,7 +37,7 @@ export default function KontakPage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-16">
+      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-24 sm:py-28">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
             Hubungi Fakultas Teknik
@@ -65,17 +48,18 @@ export default function KontakPage() {
         </div>
       </section>
 
-      {/* 1. ALAMAT & EMAIL & WHATSAPP & FORMULIR */}
+      {/* 1. ALAMAT & WHATSAPP & PETA MAPS */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
           {/* Contact Details & WhatsApp Button */}
           <div className="lg:col-span-5 flex">
             <GlassCard
-              className="bg-[#112236]/90 border-amber-500/20 w-full"
-              innerClassName="bg-gradient-to-br from-[#112236] to-[#1B3A5C] text-white space-y-6"
+              style={{ backgroundColor: "#0F1E2E" }}
+              innerStyle={{ backgroundColor: "#112236", color: "#FFFFFF" }}
+              innerClassName="bg-gradient-to-br from-[#112236] to-[#1B3A5C] text-white space-y-6 w-full flex flex-col justify-between border border-amber-500/20"
             >
               <div>
-                <h3 className="text-2xl font-extrabold text-slate-100">
+                <h3 className="text-2xl font-extrabold text-white">
                   Gedung Dekanat FT UNPAL
                 </h3>
               </div>
@@ -132,100 +116,32 @@ export default function KontakPage() {
             </GlassCard>
           </div>
 
-          {/* Email Contact Form */}
+          {/* Google Maps Section */}
           <div className="lg:col-span-7 flex">
-            <GlassCard innerClassName="space-y-6 w-full">
-              <div>
-                <h2 className="text-2xl font-extrabold text-[#1B3A5C]">
-                  Kirim Pesan Email ke Dekanat
-                </h2>
+            <GlassCard innerClassName="space-y-4 w-full flex flex-col justify-between">
+              <div className="flex justify-between items-center border-b border-stone-200/60 pb-3">
+                <div>
+                  <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">Lokasi Kampus</span>
+                  <h2 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
+                    Peta Google Maps FT UNPAL
+                  </h2>
+                </div>
+                <span className="text-xs text-amber-800 font-semibold bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
+                  Bukit Besar, Palembang
+                </span>
               </div>
 
-              {submitted ? (
-                <div className="p-6 rounded-2xl bg-emerald-50 border border-emerald-200 text-emerald-900 space-y-4 text-center">
-                  <span className="text-3xl">✅</span>
-                  <h3 className="text-lg font-bold">Pesan Terkirim!</h3>
-                  <p className="text-xs text-emerald-700">
-                    Terima kasih, pesan Anda telah kami terima (Mode Simulasi Frontend). Kami akan menghubungi Anda melalui email dalam 1x24 jam kerja.
-                  </p>
-                  <PearlButton
-                    size="sm"
-                    variant="blue"
-                    onClick={() => {
-                      setSubmitted(false);
-                      setFormData({ nama: "", email: "", subjek: "", pesan: "" });
-                    }}
-                    label="Kirim Pesan Lain"
-                  />
-                </div>
-              ) : (
-                <form onSubmit={handleSubmit} className="space-y-4">
-                  <div>
-                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Nama Lengkap *
-                    </label>
-                    <input
-                      type="text"
-                      required
-                      placeholder="Masukkan nama Anda"
-                      value={formData.nama}
-                      onChange={(e) => setFormData({ ...formData, nama: e.target.value })}
-                      className="w-full px-4 py-3 text-sm bg-white/80 border border-stone-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1B3A5C]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Alamat Email *
-                    </label>
-                    <input
-                      type="email"
-                      required
-                      placeholder="contoh@email.com"
-                      value={formData.email}
-                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                      className="w-full px-4 py-3 text-sm bg-white/80 border border-stone-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1B3A5C]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Subjek / Perihal
-                    </label>
-                    <input
-                      type="text"
-                      placeholder="Contoh: Pertanyaan PMB / Surat Riset"
-                      value={formData.subjek}
-                      onChange={(e) => setFormData({ ...formData, subjek: e.target.value })}
-                      className="w-full px-4 py-3 text-sm bg-white/80 border border-stone-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1B3A5C]"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-xs font-bold text-stone-700 uppercase tracking-wider mb-1">
-                      Pesan Anda *
-                    </label>
-                    <textarea
-                      required
-                      rows={4}
-                      placeholder="Tuliskan pesan atau pertanyaan Anda di sini..."
-                      value={formData.pesan}
-                      onChange={(e) => setFormData({ ...formData, pesan: e.target.value })}
-                      className="w-full px-4 py-3 text-sm bg-white/80 border border-stone-300 rounded-2xl focus:outline-none focus:ring-2 focus:ring-[#1B3A5C]"
-                    />
-                  </div>
-
-                  <div className="pt-2">
-                    <PearlButton
-                      type="submit"
-                      size="md"
-                      variant="amber"
-                      className="w-full"
-                      label="Kirim Pesan Email →"
-                    />
-                  </div>
-                </form>
-              )}
+              <div className="h-[380px] sm:h-[420px] w-full rounded-2xl overflow-hidden bg-stone-200 border border-stone-300 shrink-0">
+                <iframe
+                  title="Lokasi Fakultas Teknik Universitas Palembang"
+                  src="https://maps.google.com/maps?q=Universitas%20Palembang&t=&z=15&ie=UTF8&iwloc=&output=embed"
+                  width="100%"
+                  height="100%"
+                  style={{ border: 0 }}
+                  allowFullScreen
+                  loading="lazy"
+                />
+              </div>
             </GlassCard>
           </div>
         </div>
@@ -268,34 +184,6 @@ export default function KontakPage() {
           ))}
         </div>
       </section>
-
-      {/* 3. GOOGLE MAPS */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard innerClassName="space-y-4">
-          <div className="flex justify-between items-center">
-            <div>
-              <span className="text-xs font-bold text-amber-700 uppercase tracking-wider">Lokasi Kampus</span>
-              <h3 className="text-lg font-bold text-[#1B3A5C]">Peta Google Maps FT UNPAL</h3>
-            </div>
-            <span className="text-xs text-amber-800 font-semibold bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
-              Bukit Besar, Palembang
-            </span>
-          </div>
-
-          <div className="h-96 w-full rounded-2xl overflow-hidden bg-stone-200 border border-stone-300">
-            <iframe
-              title="Lokasi Fakultas Teknik Universitas Palembang"
-              src="https://maps.google.com/maps?q=Universitas%20Palembang&t=&z=15&ie=UTF8&iwloc=&output=embed"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-            />
-          </div>
-        </GlassCard>
-      </section>
     </div>
   );
 }
-

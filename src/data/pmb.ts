@@ -1,19 +1,24 @@
 // Data PMB (Penerimaan Mahasiswa Baru)
 
-export interface GelombangPMB {
+export interface JalurPendaftaran {
   nama: string;
-  pendaftaran: string;
-  tes: string;
-  pengumuman: string;
-  daftarUlang: string;
-  status: "Selesai" | "Buka" | "Akan Datang";
+  tagline: string;
+  deskripsi: string;
+  badge: string;
 }
 
-export interface BiayaKuliah {
-  prodi: string;
-  dpp: string; // Dana Pengembangan Pendidikan (sekali bayar)
-  spp: string; // SPP per semester
-  praktikum: string; // Biaya praktikum per semester
+export interface JenisKelas {
+  nama: string;
+  kategori: "REGULER" | "KARYAWAN";
+  deskripsi: string;
+  jadwal: string;
+  durasi: string;
+}
+
+export interface BiayaPendidikan {
+  kategori: string;
+  kelasA: string;
+  kelasB: string;
 }
 
 export interface ProsedurStep {
@@ -22,133 +27,86 @@ export interface ProsedurStep {
   deskripsi: string;
 }
 
-export const gelombangPMB: GelombangPMB[] = [
+export const jalurPendaftaran: JalurPendaftaran[] = [
   {
-    nama: "Gelombang 1 (Jalur Prestasi & Dini)",
-    pendaftaran: "02 Januari - 31 Maret 2026",
-    tes: "Tanpa Tes (Seleksi Rapor/Prestasi)",
-    pengumuman: "05 April 2026",
-    daftarUlang: "06 April - 30 April 2026",
-    status: "Selesai",
+    nama: "Lulusan Baru (Murni)",
+    tagline: "S1 Reguler / Murni",
+    deskripsi: "Jalur bagi lulusan SMA/SMK/MA sederajat.",
+    badge: "Murni",
   },
   {
-    nama: "Gelombang 2 (Jalur Reguler Utama)",
-    pendaftaran: "01 April - 30 Juni 2026",
-    tes: "05 Juli 2026",
-    pengumuman: "10 Juli 2026",
-    daftarUlang: "11 Juli - 31 Juli 2026",
-    status: "Buka",
-  },
-  {
-    nama: "Gelombang 3 (Jalur Akhir & Transfer)",
-    pendaftaran: "01 Juli - 25 Agustus 2026",
-    tes: "28 Agustus 2026",
-    pengumuman: "30 Agustus 2026",
-    daftarUlang: "31 Agustus - 05 September 2026",
-    status: "Akan Datang",
+    nama: "Pindahan / Lanjutan (Transisi)",
+    tagline: "S1 Transfer & Lanjutan",
+    deskripsi: "Jalur bagi mahasiswa pindahan atau lulusan D3 ke S1.",
+    badge: "Transisi",
   },
 ];
 
-export const persyaratanPMB = [
-  "Fotokopi Ijazah / Surat Keterangan Lulus (SKL) SMA/SMK/MA sederajat yang telah dilegalisir (2 lembar).",
-  "Fotokopi Rapor semester 1 s.d. 5 (khusus pendaftar Jalur Prestasi).",
-  "Pasfoto terbaru background merah ukuran 3x4 (4 lembar) dan 4x6 (2 lembar).",
-  "Fotokopi Kartu Keluarga (KK) dan Kartu Tanda Penduduk (KTP) / Kartu Pelajar (2 lembar).",
-  "Surat Keterangan Bebas Narkoba dari instansi kesehatan resmi.",
-  "Surat Keterangan Tidak Buta Warna (khusus Prodi Teknik Elektro & Teknik Mesin).",
-  "Membayar biaya formulir pendaftaran sebesar Rp 300.000,-.",
-];
-
-export const rincianBiaya: BiayaKuliah[] = [
+export const jenisKelas: JenisKelas[] = [
   {
-    prodi: "Teknik Sipil (S1)",
-    dpp: "Rp 4.500.000,-",
-    spp: "Rp 3.200.000,-",
-    praktikum: "Rp 450.000,-",
+    nama: "Kelas A Pagi",
+    kategori: "REGULER",
+    deskripsi: "Kuliah setiap hari kerja.",
+    jadwal: "Senin - Kamis",
+    durasi: "08:00 - 12:00",
   },
   {
-    prodi: "Teknik Mesin (S1)",
-    dpp: "Rp 4.500.000,-",
-    spp: "Rp 3.200.000,-",
-    praktikum: "Rp 500.000,-",
+    nama: "Kelas A Sore",
+    kategori: "KARYAWAN",
+    deskripsi: "Bagi yang bekerja di siang hari.",
+    jadwal: "Senin - Kamis",
+    durasi: "17:00 - 21:00",
   },
   {
-    prodi: "Teknik Elektro (S1)",
-    dpp: "Rp 4.500.000,-",
-    spp: "Rp 3.200.000,-",
-    praktikum: "Rp 500.000,-",
-  },
-  {
-    prodi: "Teknik Informatika (S1)",
-    dpp: "Rp 5.000.000,-",
-    spp: "Rp 3.500.000,-",
-    praktikum: "Rp 400.000,-",
+    nama: "Kelas B Jum'at - Sabtu",
+    kategori: "KARYAWAN",
+    deskripsi: "Kuliah di akhir pekan.",
+    jadwal: "Jum'at - Sabtu",
+    durasi: "08:00 - 17:00",
   },
 ];
 
-export const prosedurPMB: ProsedurStep[] = [
+export const rincianBiayaNew: BiayaPendidikan[] = [
   {
-    step: 1,
-    judul: "Pendaftaran Online / Offline",
-    deskripsi:
-      "Isi formulir pendaftaran secara online melalui portal PMB UNPAL atau datang langsung ke Sekretariat PMB Gedung FT UNPAL.",
+    kategori: "Mahasiswa Murni",
+    kelasA: "Kelas A (Pagi & Sore)",
+    kelasB: "Kelas B (Jum'at - Sabtu)",
   },
   {
-    step: 2,
-    judul: "Pembayaran Formulir",
-    deskripsi:
-      "Lakukan pembayaran formulir sebesar Rp 300.000,- melalui rekening resmi Bank Sumsel Babel / Mandiri UNPAL.",
+    kategori: "Mahasiswa Transisi",
+    kelasA: "Kelas A (Pagi & Sore)",
+    kelasB: "Kelas B (Jum'at - Sabtu)",
   },
-  {
-    step: 3,
-    judul: "Upload / Serah Berkas",
-    deskripsi:
-      "Unggah berkas persyaratan (Ijazah/SKL, KTP, Foto, dll) ke portal pendaftaran atau serahkan berkas fisik ke panitia.",
-  },
-  {
-    step: 4,
-    judul: "Pelaksanaan Ujian Seleksi",
-    deskripsi:
-      "Ikuti Ujian Saringan Masuk (USM) berbasis Komputer (CBT) sesuai jadwal gelombang yang dipilih (bebas tes bagi jalur prestasi).",
-  },
-  {
-    step: 5,
-    judul: "Pengumuman Hasil",
-    deskripsi:
-      "Cek pengumuman kelulusan melalui portal pendaftaran atau papan pengumuman Kampus FT Universitas Palembang.",
-  },
-  {
-    step: 6,
-    judul: "Daftar Ulang & Orientasi",
-    deskripsi:
-      "Lakukan pembayaran SPP & DPP pertama, dilanjutkan registrasi ulang dan mengikuti Pengenalan Kehidupan Kampus (PKKMB).",
-  },
+];
+
+export const syaratMurni: string[] = [
+  "Mengisi Formulir Pendaftaran",
+  "Berijazah SLTA atau Sederajat",
+  "Fotocopy Ijazah yang dilegalisir 3 (tiga) lembar",
+  "Fotocopy Nilai Ujian Nasional 3 (tiga) lembar",
+  "Fotocopy Nilai Raport semester terakhir 3 (tiga) lembar",
+  "Fotocopy KTP/WNA Pasport sebanyak 3 (tiga) lembar",
+  "Fotocopy Kartu Keluarga (KK) sebanyak 3 (tiga) lembar",
+  "Pas Photo Hitam Putih 3×4 cm sebanyak 4 lembar",
+  "Pas Photo Berwarna 3×4 cm sebanyak 4 lembar",
+  "Biaya Pendaftaran Rp. 250.000,-",
+];
+
+export const syaratTransisi: string[] = [
+  "Mengisi Formulir Pendaftaran",
+  "Berijazah Program Diploma",
+  "Fotocopy Ijazah dan Transkrip Nilai yang dilegalisir masing-masing 3 lembar",
+  "Pindahan/Transisi menyerahkan Surat Keterangan Pindah dari Perguruan Tinggi Asal dan Fotocopy Transkrip Nilai yang dilegalisir masing-masing 3 lembar",
+  "Ijazah SLTA atau Sederajat untuk mahasiswa Pindahan sebanyak 3 (tiga) lembar",
+  "Fotocopy KTP/WNA Pasport sebanyak 3 (tiga) lembar",
+  "Fotocopy Kartu Keluarga (KK) sebanyak 3 (tiga) lembar",
+  "Pas Photo Hitam Putih 3×4 cm sebanyak 4 lembar",
+  "Pas Photo Berwarna 3×4 cm sebanyak 4 lembar",
+  "Biaya Pendaftaran Rp. 250.000,-",
+  "Biaya Konversi Rp. 1.000.000,-",
 ];
 
 export const portalPMBUrl = "https://pmb.universitas-palembang.ac.id";
-
-export const faqPMB = [
-  {
-    pertanyaan: "Apakah pendaftaran PMB Fakultas Teknik UNPAL bisa dilakukan secara online?",
-    jawaban:
-      "Ya, seluruh alur pendaftaran dapat dilakukan secara daring melalui portal resmi PMB di pmb.universitas-palembang.ac.id atau secara luring langsung di Gedung Dekanat FT UNPAL.",
-  },
-  {
-    pertanyaan: "Apakah ada fasilitas Beasiswa bagi mahasiswa baru?",
-    jawaban:
-      "Tersedia berbagai skema beasiswa seperti Beasiswa KIP Kuliah, Beasiswa Prestasi Akademik/Non-Akademik, Beasiswa Kemitraan Bank Sumsel Babel, dan Beasiswa Yayasan.",
-  },
-  {
-    pertanyaan: "Bagaimana sistem perkuliahan bagi calon mahasiswa yang sudah bekerja?",
-    jawaban:
-      "Fakultas Teknik menyediakan Kelas Reguler Sore / Eksekutif untuk Program Studi Teknik Sipil, Mesin, Elektro, dan Informatika dengan jadwal yang disesuaikan.",
-  },
-  {
-    pertanyaan: "Apakah lulusan SMK / MA Keagamaan bisa mendaftar di Fakultas Teknik?",
-    jawaban:
-      "Bisa. Semua jurusan dari SMA/SMK/MA sederajat berhak mendaftar untuk seluruh program studi S1 Teknik Sipil, Mesin, Elektro, maupun Informatika.",
-  },
-];
 
 export const timPMB = {
   ketuaPanitia: "Dr. Rudi Hartono, S.T., M.Eng. (Wakil Dekan III)",
@@ -158,4 +116,3 @@ export const timPMB = {
   email: "pmb.ft@universitas-palembang.ac.id",
   stafHelpdesk: ["Surya Pratama, S.E.", "Eka Putri, A.Md."],
 };
-

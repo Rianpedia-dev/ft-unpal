@@ -36,7 +36,7 @@ export function NavBar({ items, className }: NavBarProps) {
         className,
       )}
     >
-      <div className="flex items-center gap-1.5 sm:gap-2 bg-[#112236]/90 border border-amber-500/20 backdrop-blur-xl py-1.5 px-2 rounded-full shadow-2xl shadow-black/30">
+      <div className="flex items-center gap-1 sm:gap-2 bg-[#112236]/90 border border-amber-500/20 backdrop-blur-xl py-1.5 px-1.5 sm:px-2 rounded-full shadow-2xl shadow-black/30 max-w-[95vw]">
         {items.map((item) => {
           const Icon = item.icon
           const isActive = activeTab === item.name || pathname === item.url
@@ -50,8 +50,8 @@ export function NavBar({ items, className }: NavBarProps) {
                 window.scrollTo({ top: 0, left: 0, behavior: "instant" });
               }}
               className={cn(
-                "relative cursor-pointer text-xs sm:text-sm font-bold px-3.5 sm:px-5 py-2 rounded-full transition-all duration-200",
-                "text-slate-300 hover:text-amber-300",
+                "relative cursor-pointer text-xs sm:text-sm font-bold px-2.5 sm:px-5 py-2 rounded-full transition-all duration-200",
+                "text-slate-300 hover:text-amber-300 flex items-center justify-center min-w-[36px] sm:min-w-0",
                 isActive && "text-amber-400 bg-white/10 shadow-inner",
               )}
             >

@@ -22,7 +22,6 @@ const navItems: NavItem[] = [
   { name: "PMB", url: "/pmb", icon: GraduationCap },
   { name: "Galeri", url: "/galeri", icon: ImageIcon },
   { name: "Publikasi", url: "/publikasi", icon: BookOpen },
-  { name: "Kontak", url: "/kontak", icon: PhoneCall },
 ];
 
 export default function Navbar() {
@@ -51,13 +50,13 @@ export default function Navbar() {
             </div>
           </Link>
 
-          {/* PMB CTA Button Desktop */}
-          <div className="hidden sm:flex items-center gap-3">
+          {/* Kontak CTA Button */}
+          <div className="flex items-center gap-3">
             <PearlButton
-              href="/pmb"
+              href="/kontak"
               size="sm"
               variant="blue"
-              label="PMB 2026/2027"
+              label="Kontak"
             />
           </div>
         </div>

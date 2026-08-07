@@ -112,6 +112,7 @@ export interface Berita {
   tanggal: string;
   ringkasan: string;
   penulis: string;
+  gambar: string;
 }
 
 export interface Artikel {
@@ -132,6 +133,7 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Fakultas Teknik Universitas Palembang resmi menandatangani Nota Kesepahaman (MoU) dengan PT Pusri Palembang dalam penguatan program Merdeka Belajar Kampus Merdeka (MBKM) dan riset bersama.",
     penulis: "Humas FT UNPAL",
+    gambar: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "ber-2",
@@ -141,6 +143,7 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Setelah sukses menjuarai seleksi wilayah Sumatera, tim robotika FT UNPAL mewakili Sumatera Selatan untuk bertanding dalam Kontes Robot Indonesia (KRI) di Surabaya.",
     penulis: "Redaksi Kemahasiswaan",
+    gambar: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
   },
   {
     id: "ber-3",
@@ -150,6 +153,7 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Program Studi Teknik Elektro menggelar kuliah umum menghadirkan pakar energi terbarukan dari PT PLN (Persero) UID S2JB.",
     penulis: "Humas FT UNPAL",
+    gambar: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
   },
 ];
 
