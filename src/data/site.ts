@@ -22,10 +22,10 @@ export const navigation = [
 
 export const deanGreeting = {
   name: "Dr. Ir. Ahmad Fauzi, M.T.",
-  title: "Dekan Fakultas Teknik",
-  photo: "/images/dekan.jpg",
+  title: "Dekan Fakultas Teknik Universitas Palembang",
+  photo: "/dekan.jpg",
   message:
-    "Assalamu'alaikum Warahmatullahi Wabarakatuh. Selamat datang di website resmi Fakultas Teknik Universitas Palembang. Fakultas Teknik hadir sebagai wadah pengembangan ilmu pengetahuan dan teknologi yang berorientasi pada kebutuhan industri dan masyarakat. Dengan dukungan tenaga pengajar berkualitas serta fasilitas yang memadai, kami berkomitmen untuk mencetak lulusan yang kompeten, inovatif, dan berintegritas tinggi. Semoga website ini dapat menjadi sumber informasi yang bermanfaat bagi seluruh civitas akademika maupun masyarakat umum. Wassalamu'alaikum Warahmatullahi Wabarakatuh.",
+    "Assalamu'alaikum Warahmatullahi Wabarakatuh dan Salam Sejahtera bagi kita semua.\n\nSelamat datang di portal resmi Fakultas Teknik Universitas Palembang. Sebagai salah satu pilar pendidikan tinggi teknik yang berdedikasi di Sumatera Selatan sejak tahun 1985, Fakultas Teknik berkomitmen penuh untuk menyelenggarakan pendidikan berkemajuan, riset rekayasa aplikatif, serta pengabdian masyarakat yang berdampak nyata.\n\nMemasuki era transformasi digital dan transisi energi industri modern, kami secara berkesinambungan menyempurnakan kurikulum berbasis Outcome-Based Education (OBE), memperkuat kerja sama strategis dengan industri nasional seperti PT Pusri dan sektor energi terbarukan, serta membekali para mahasiswa dengan keterampilan sains, teknologi, dan etika profesi yang unggul.\n\nMelalui Program Studi S1 Teknik Sipil dan S1 Teknik Elektro yang telah terakreditasi BAN-PT, kami mencetak lulusan sarjana teknik yang tidak hanya tangguh dan adaptif, tetapi juga siap menjadi pemimpin masa depan di bidang teknologi dan inovasi.\n\nSemoga platform digital ini dapat memberi kemudahan akses informasi bagi seluruh civitas akademika, calon mahasiswa baru, alumni, maupun mitra kerja sama. Terima kasih atas kepercayaan Anda kepada Fakultas Teknik Universitas Palembang.\n\nWassalamu'alaikum Warahmatullahi Wabarakatuh.",
 };
 
 export const statistics = [
@@ -203,6 +203,18 @@ export const kemitraanList = [
     kategori: "Instansi Pemerintah",
     deskripsi: "Kemitraan pengabdian masyarakat dan tata ruang pembangunan daerah.",
     logo: "🏛️",
+  },
+  {
+    nama: "PT Bukit Asam Tbk",
+    kategori: "BUMN Pertambangan",
+    deskripsi: "Riset eksplorasi, beasiswa pendidikan, dan program magang kerja industri.",
+    logo: "⛏️",
+  },
+  {
+    nama: "PT Semen Baturaja Tbk",
+    kategori: "BUMN Industri Semen",
+    deskripsi: "Uji bahan konstruksi laboratorium dan sertifikasi keahlian lulusan.",
+    logo: "🧱",
   },
 ];
 

@@ -27,8 +27,8 @@ const navItems: NavItem[] = [
 export default function Navbar() {
   return (
     <>
-      {/* Top Header Bar for Brand & CTA */}
-      <header className="sticky top-0 z-40 w-full border-b border-amber-900/10 bg-[#F5F0E8]/90 backdrop-blur-md transition-all">
+      {/* Fixed Top Header Bar for Brand & CTA */}
+      <header className="fixed top-0 left-0 right-0 z-40 w-full border-b border-white/10 bg-[#1B3A5C]/85 backdrop-blur-md transition-all">
         <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
           {/* Brand / Logo */}
           <Link href="/" className="flex items-center gap-3 group">
@@ -41,10 +41,10 @@ export default function Navbar() {
               priority
             />
             <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-[#1B3A5C] text-lg sm:text-xl leading-tight">
+              <span className="font-extrabold tracking-tight text-white text-lg sm:text-xl leading-tight">
                 {siteConfig.name}
               </span>
-              <span className="text-xs font-medium text-amber-800/80 tracking-wider">
+              <span className="text-xs font-medium text-amber-400 tracking-wider">
                 {siteConfig.university}
               </span>
             </div>
