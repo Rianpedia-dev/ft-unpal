@@ -121,19 +121,24 @@ function LogoCard({ logo, className, children, ...props }: LogoCardProps) {
   return (
     <div
       className={cn(
-        "flex flex-col items-center justify-center text-center p-6 sm:p-8 md:p-10 select-none group transition-colors duration-300 min-h-[110px] md:min-h-[130px]",
+        "flex flex-col items-center justify-center text-center p-4 sm:p-6 md:p-8 select-none group transition-colors duration-300 min-h-[130px] md:min-h-[150px]",
         className
       )}
       {...props}
     >
       {logo.src ? (
-        <img
-          alt={logo.alt}
-          className="pointer-events-none h-6 md:h-8 select-none object-contain group-hover:scale-105 transition-transform"
-          height={logo.height || "auto"}
-          src={logo.src}
-          width={logo.width || "auto"}
-        />
+        <div className="flex flex-col items-center justify-center gap-2.5">
+          <img
+            alt={logo.alt}
+            className="pointer-events-none h-10 sm:h-12 md:h-14 max-w-[160px] max-h-[56px] select-none object-contain group-hover:scale-105 transition-transform duration-300"
+            height={logo.height || "auto"}
+            src={logo.src}
+            width={logo.width || "auto"}
+          />
+          <span className="text-[11px] sm:text-xs md:text-sm font-bold tracking-tight text-[#1B3A5C] group-hover:text-amber-600 transition-colors uppercase max-w-[200px] leading-tight">
+            {logo.nama}
+          </span>
+        </div>
       ) : (
         <div className="flex flex-col items-center justify-center gap-2">
           <span className="text-2xl md:text-3xl transition-transform group-hover:scale-110">{logo.icon || "🏢"}</span>

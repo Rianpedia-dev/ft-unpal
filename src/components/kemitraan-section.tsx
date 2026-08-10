@@ -6,7 +6,8 @@ export default function KemitraanSection() {
     alt: mitra.nama,
     nama: mitra.nama,
     kategori: mitra.kategori,
-    icon: mitra.logo,
+    src: mitra.logo.startsWith("/") ? mitra.logo : undefined,
+    icon: !mitra.logo.startsWith("/") ? mitra.logo : undefined,
   }));
 
   return (

@@ -7,10 +7,11 @@ import {
   tujuanFakultas,
   programStudiList,
   nilaiFakultas,
-  logoMakna,
   siteConfig,
 } from "@/data/site";
 import { GlassCard } from "@/components/ui/glass-card";
+import LogoAccordionSection from "@/components/ui/faq-sections";
+import { Building2, Zap, Award, GraduationCap, Briefcase, UserCheck } from "lucide-react";
 
 export const metadata = {
   title: `Profil | ${siteConfig.name} ${siteConfig.university}`,
@@ -22,12 +23,39 @@ export default function ProfilPage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Profil Fakultas Teknik
+      <section className="relative w-full flex items-center justify-center min-h-[220px] sm:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-slate-950 text-white pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-24 lg:pb-12 mb-6 sm:mb-8">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/upload/background-header/profil.avif"
+            alt="Profil Background Header"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#112236]/80 via-[#162B45]/70 to-[#1B3A5C]/80 z-10" />
+        </div>
+
+        <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-2 pt-2">
+          <div className="flex justify-center pb-1">
+            <Image
+              src={siteConfig.logo}
+              alt={`Logo ${siteConfig.name}`}
+              width={140}
+              height={140}
+              className="h-24 w-24 sm:h-28 sm:w-28 md:h-32 md:w-32 drop-shadow-2xl"
+              priority
+            />
+          </div>
+          <h1 className="flex flex-col items-center justify-center font-extrabold tracking-tight text-white">
+            <span className="text-3xl sm:text-5xl lg:text-6xl font-black uppercase text-sky-400 tracking-wider drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+              FAKULTAS TEKNIK
+            </span>
+            <span className="text-xl sm:text-3xl lg:text-4xl mt-1.5 font-bold text-amber-400 drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+              Universitas Palembang
+            </span>
           </h1>
-          <p className="text-slate-300 text-base max-w-2xl mx-auto font-light">
+          <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-light drop-shadow-sm">
             Mengenal identitas, perjalanan sejarah, motto, arah strategis, program studi, nilai-nilai utama, serta filosofi logo Fakultas Teknik Universitas Palembang.
           </p>
         </div>
@@ -38,20 +66,15 @@ export default function ProfilPage() {
 
       {/* 1. MOTTO FAKULTAS */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard
-          style={{ backgroundColor: "#0F1E2E" }}
-          innerStyle={{ backgroundColor: "#112236", color: "#FFFFFF" }}
-          innerClassName="border border-amber-500/30 p-8 text-center space-y-4 shadow-xl"
-        >
-          <span className="inline-block text-xs font-extrabold uppercase tracking-widest text-amber-400 bg-amber-400/10 px-4 py-1.5 rounded-full border border-amber-400/20">
+        <GlassCard innerClassName="p-6 sm:p-8 md:p-10 text-center space-y-4">
+          <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-800">
             {mottoFakultas.judul}
-          </span>
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-amber-300 leading-tight italic">
-            "{mottoFakultas.motto}"
+          </div>
+
+          <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-relaxed italic text-[#1B3A5C]">
+            "Mengintegrasikan Ilmu, Teknologi, dan Inovasi <br className="hidden sm:inline" />
+            Untuk Membangun Peradaban yang Lebih Maju"
           </h2>
-          <p className="text-xs sm:text-sm text-slate-300 max-w-3xl mx-auto font-light leading-relaxed">
-            {mottoFakultas.deskripsi}
-          </p>
         </GlassCard>
       </section>
 
@@ -76,7 +99,7 @@ export default function ProfilPage() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           {/* Visi */}
           <div className="md:col-span-5 flex">
-            <GlassCard innerClassName="flex flex-col justify-between space-y-6 w-full">
+            <GlassCard className="h-full" innerClassName="flex flex-col justify-between space-y-6 w-full h-full">
               <div className="space-y-4">
                 <div className="border-b border-stone-200/60 pb-3">
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
@@ -95,7 +118,7 @@ export default function ProfilPage() {
 
           {/* Misi */}
           <div className="md:col-span-7 flex">
-            <GlassCard innerClassName="space-y-6 w-full">
+            <GlassCard className="h-full" innerClassName="flex flex-col justify-between space-y-6 w-full h-full">
               <div className="border-b border-stone-200/60 pb-3">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
                   Misi Fakultas
@@ -147,50 +170,101 @@ export default function ProfilPage() {
 
       {/* 4. PROGRAM STUDI */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
-            Program Studi (S1)
+        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
+          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1B3A5C]">
+            Program Studi Sarjana (S1)
           </h2>
-          <p className="text-stone-600 text-sm">
-            Dua program studi pilihan terakreditasi untuk menghasilkan tenaga profesional siap kerja
+          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+            Dua program studi unggulan terakreditasi BAN-PT dengan kurikulum berbasis Outcome-Based Education (OBE) untuk mencetak sarjana teknik berkualitas & siap bersaing secara global.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
           {programStudiList.map((prodi, idx) => (
-            <GlassCard key={idx} className="hover:-translate-y-1 transition-transform">
-              <div className="space-y-4 flex flex-col justify-between h-full">
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center">
-                    <span className="text-xs font-extrabold uppercase text-amber-900 bg-amber-100 px-3 py-1 rounded-full border border-amber-200">
-                      Akreditasi: {prodi.akreditasi}
-                    </span>
-                    <span className="text-xs font-mono font-bold text-[#1B3A5C]">
-                      {prodi.jenjang}
-                    </span>
+            <div
+              key={idx}
+              className="group relative overflow-hidden rounded-3xl bg-white/90 backdrop-blur-md border border-stone-200 p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
+            >
+              <div className="space-y-6">
+
+                {/* Title & Icon */}
+                <div className="flex items-start justify-between gap-4">
+                  <div className="space-y-1">
+                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#112236] tracking-tight group-hover:text-[#1B3A5C] transition-colors">
+                      {prodi.nama}
+                    </h3>
+                    <p className="text-sm font-bold text-amber-700">
+                      Gelar Lulusan: {prodi.gelar} (Sarjana Teknik)
+                    </p>
                   </div>
-
-                  <h3 className="text-xl font-extrabold text-[#1B3A5C]">
-                    {prodi.nama} ({prodi.gelar})
-                  </h3>
-
-                  <p className="text-xs sm:text-sm text-stone-600 leading-relaxed font-normal">
-                    {prodi.deskripsi}
-                  </p>
+                  <div className="h-12 w-12 rounded-2xl bg-[#112236] text-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-[#112236] transition-all">
+                    {prodi.id === "sipil" ? (
+                      <Building2 className="size-6" />
+                    ) : (
+                      <Zap className="size-6" />
+                    )}
+                  </div>
                 </div>
 
-                <div className="space-y-2 pt-4 border-t border-stone-200/60 text-xs">
-                  <p>
-                    <span className="font-bold text-stone-900">Prospek Karir:</span>{" "}
-                    <span className="text-stone-600">{prodi.prospek}</span>
-                  </p>
-                  <p>
-                    <span className="font-bold text-stone-900">Ketua Prodi:</span>{" "}
-                    <span className="text-amber-800 font-semibold">{prodi.kaprodi}</span>
-                  </p>
+                {/* Deskripsi */}
+                <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
+                  {prodi.deskripsi}
+                </p>
+
+                {/* Peminatan / Bidang Keahlian */}
+                <div className="space-y-2.5">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#112236] block">
+                    Bidang Keahlian & Peminatan:
+                  </span>
+                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+                    {prodi.peminatan.map((item, pIdx) => (
+                      <div
+                        key={pIdx}
+                        className="text-xs font-semibold bg-slate-100/80 text-stone-800 px-3 py-1.5 rounded-xl border border-slate-200/80 flex items-center gap-2"
+                      >
+                        <span className="text-amber-600 font-extrabold">✓</span>
+                        <span>{item}</span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+
+                {/* Prospek Karir */}
+                <div className="space-y-2.5">
+                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#112236] block">
+                    Prospek Karir Lulusan:
+                  </span>
+                  <div className="flex flex-wrap gap-2">
+                    {prodi.prospek.map((karir, kIdx) => (
+                      <span
+                        key={kIdx}
+                        className="inline-flex items-center gap-1.5 text-xs font-semibold bg-amber-500/10 text-amber-950 px-3 py-1.5 rounded-lg border border-amber-400/30"
+                      >
+                        <Briefcase className="size-3.5 text-amber-700 shrink-0" />
+                        <span>{karir}</span>
+                      </span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </GlassCard>
+
+              {/* Kaprodi Footer Card */}
+              <div className="mt-8 pt-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/90 p-4 rounded-2xl border border-stone-200">
+                <div className="flex items-center gap-3">
+                  <div className="h-10 w-10 rounded-xl bg-[#112236] text-amber-400 flex items-center justify-center shrink-0 shadow-xs">
+                    <UserCheck className="size-5" />
+                  </div>
+                  <div>
+                    <div className="text-[11px] font-bold uppercase tracking-wider text-stone-500">
+                      Ketua Program Studi
+                    </div>
+                    <div className="text-sm font-extrabold text-[#112236]">
+                      {prodi.kaprodi}
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
           ))}
         </div>
       </section>
@@ -208,17 +282,20 @@ export default function ProfilPage() {
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {nilaiFakultas.map((item, idx) => (
-            <GlassCard key={idx} className="hover:-translate-y-1 transition-transform">
-              <div className="text-center space-y-3">
-                <div className="mx-auto h-14 w-14 rounded-2xl bg-[#1B3A5C] text-amber-400 text-2xl flex items-center justify-center shadow">
-                  {item.icon}
+            <GlassCard key={idx} className="hover:-translate-y-1 transition-all duration-300">
+              <div className="text-center py-2 flex flex-col items-center justify-center gap-3">
+                <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center">
+                  <Image
+                    src={item.iconSrc}
+                    alt={item.nilai}
+                    width={64}
+                    height={64}
+                    className="w-full h-full object-contain drop-shadow-md"
+                  />
                 </div>
                 <h3 className="text-base font-extrabold text-[#1B3A5C] tracking-wider">
                   {item.nilai}
                 </h3>
-                <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                  {item.deskripsi}
-                </p>
               </div>
             </GlassCard>
           ))}
@@ -227,50 +304,7 @@ export default function ProfilPage() {
 
       {/* 6. LOGO DAN MAKNA */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard>
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Visual Symbol */}
-            <div className="lg:col-span-4 flex justify-center">
-              <div className="p-6 rounded-3xl bg-gradient-to-br from-[#112236] to-[#1B3A5C] border-4 border-amber-400 flex flex-col items-center justify-center text-center shadow-xl">
-                <Image
-                  src={siteConfig.logo}
-                  alt={`Logo Resmi ${siteConfig.name} ${siteConfig.university}`}
-                  width={140}
-                  height={140}
-                  className="h-32 w-32 object-contain drop-shadow-md"
-                />
-                <span className="text-xs font-bold text-amber-300 uppercase tracking-widest mt-3">
-                  Resmi FT UNPAL
-                </span>
-              </div>
-            </div>
-
-            {/* Content Details */}
-            <div className="lg:col-span-8 space-y-4">
-              <div>
-                <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
-                  {logoMakna.judul}
-                </h2>
-                <p className="text-xs sm:text-sm text-stone-600 mt-1">
-                  {logoMakna.deskripsi}
-                </p>
-              </div>
-
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                {logoMakna.elemen.map((elem, idx) => (
-                  <div key={idx} className="bg-white/70 p-3.5 rounded-2xl border border-stone-200/80 space-y-1">
-                    <h4 className="text-xs font-extrabold text-[#1B3A5C] uppercase tracking-wider">
-                      ● {elem.nama}
-                    </h4>
-                    <p className="text-xs text-stone-600 leading-relaxed font-normal">
-                      {elem.makna}
-                    </p>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </GlassCard>
+        <LogoAccordionSection />
       </section>
     </div>
   );

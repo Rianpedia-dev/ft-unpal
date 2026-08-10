@@ -1,4 +1,8 @@
-// Data Publikasi & Penelitian Akademik
+// ============================================================================
+// DATA PUBLIKASI, JURNAL ILMIAH, PENELITIAN, BERITA, & ARTIKEL FT UNPAL
+// File ini digunakan untuk pengelolaan data Jurnal Ilmiah OJS, Penelitian Dosen,
+// Beritas Utama Fakultas, serta Artikel Informasi Akademik.
+// ============================================================================
 
 export interface Journal {
   id: string;
@@ -21,6 +25,29 @@ export interface Research {
   doiUrl?: string;
 }
 
+export interface Berita {
+  id: string;
+  judul: string;
+  kategori: string;
+  tanggal: string;
+  ringkasan: string;
+  penulis: string;
+  gambar: string;
+}
+
+export interface Artikel {
+  id: string;
+  judul: string;
+  kategori: string;
+  tanggal: string;
+  abstrak: string;
+  penulis: string;
+}
+
+// ----------------------------------------------------------------------------
+// 1. DAFTAR JURNAL ILMIAH RESMI FAKULTAS (OJS)
+// Edit nama jurnal, singkatan, ISSN, peringkat SINTA, serta URL Open Journal System.
+// ----------------------------------------------------------------------------
 export const daftarJurnal: Journal[] = [
   {
     id: "jur-1",
@@ -54,6 +81,10 @@ export const daftarJurnal: Journal[] = [
   },
 ];
 
+// ----------------------------------------------------------------------------
+// 2. DAFTAR PENELITIAN DOSEN & HAKI
+// Edit riset unggulan dosen, tim peneliti, abstrak, skema hibah, & DOI.
+// ----------------------------------------------------------------------------
 export const daftarPenelitian: Research[] = [
   {
     id: "res-1",
@@ -105,25 +136,10 @@ export const daftarPenelitian: Research[] = [
   },
 ];
 
-export interface Berita {
-  id: string;
-  judul: string;
-  kategori: string;
-  tanggal: string;
-  ringkasan: string;
-  penulis: string;
-  gambar: string;
-}
-
-export interface Artikel {
-  id: string;
-  judul: string;
-  kategori: string;
-  tanggal: string;
-  abstrak: string;
-  penulis: string;
-}
-
+// ----------------------------------------------------------------------------
+// 3. DAFTAR BERITA FAKULTAS TERBARU
+// Edit berita kegiatan resmi, liputan akademik, kemitraan, & gambar headline.
+// ----------------------------------------------------------------------------
 export const beritaFakultas: Berita[] = [
   {
     id: "ber-1",
@@ -133,7 +149,7 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Fakultas Teknik Universitas Palembang resmi menandatangani Nota Kesepahaman (MoU) dengan PT Pusri Palembang dalam penguatan program Merdeka Belajar Kampus Merdeka (MBKM) dan riset bersama.",
     penulis: "Humas FT UNPAL",
-    gambar: "https://images.unsplash.com/photo-1577495508048-b635879837f1?auto=format&fit=crop&w=800&q=80",
+    gambar: "/upload/image-berita/Benchmarking.avif",
   },
   {
     id: "ber-2",
@@ -143,7 +159,7 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Setelah sukses menjuarai seleksi wilayah Sumatera, tim robotika FT UNPAL mewakili Sumatera Selatan untuk bertanding dalam Kontes Robot Indonesia (KRI) di Surabaya.",
     penulis: "Redaksi Kemahasiswaan",
-    gambar: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
+    gambar: "/upload/image-berita/Praktikum-Teknik Sipil.avif",
   },
   {
     id: "ber-3",
@@ -153,10 +169,14 @@ export const beritaFakultas: Berita[] = [
     ringkasan:
       "Program Studi Teknik Elektro menggelar kuliah umum menghadirkan pakar energi terbarukan dari PT PLN (Persero) UID S2JB.",
     penulis: "Humas FT UNPAL",
-    gambar: "https://images.unsplash.com/photo-1473341304170-971dccb5ac1e?auto=format&fit=crop&w=800&q=80",
+    gambar: "/upload/image-berita/Yudisium.avif",
   },
 ];
 
+// ----------------------------------------------------------------------------
+// 4. ARTIKEL ILMIAH & OPINI POPULER
+// Edit artikel opini dosen dan kajian riset populer di sini.
+// ----------------------------------------------------------------------------
 export const artikelFakultas: Artikel[] = [
   {
     id: "art-1",
@@ -177,4 +197,3 @@ export const artikelFakultas: Artikel[] = [
     penulis: "Dr. Muhammad Rizki, S.Kom., M.Cs.",
   },
 ];
-

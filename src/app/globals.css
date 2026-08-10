@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --font-serif: var(--font-merriweather), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-sans: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-merriweather), Georgia, Cambria, "Times New Roman", Times, serif;
+  --font-body: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
+}
+
 @layer base {
   :root {
     --background: 40 33% 94%; /* #F5F0E8 Cream theme */
@@ -11,8 +18,21 @@
   }
 
   body {
+    font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
     background-color: #F5F0E8;
     color: #292524;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-merriweather), Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .font-heading {
+    font-family: var(--font-merriweather), Georgia, Cambria, "Times New Roman", Times, serif;
+  }
+
+  .font-body {
+    font-family: var(--font-source-sans), ui-sans-serif, system-ui, sans-serif;
   }
 }
 

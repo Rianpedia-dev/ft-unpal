@@ -4,8 +4,11 @@ import AlumniTestimonialMarquee from "@/components/alumni-marquee";
 import KemitraanSection from "@/components/kemitraan-section";
 import { deanGreeting } from "@/data/site";
 import { beritaFakultas } from "@/data/publications";
+import { pmbBannerHome } from "@/data/pmb";
 import { PearlButton } from "@/components/ui/pearl-button";
 import { GlassCard } from "@/components/ui/glass-card";
+import { ExpandableCard } from "@/components/ui/expandable-card";
+import FAQs from "@/components/ui/text-reveal-faqs";
 
 export default function Home() {
   return (
@@ -25,6 +28,7 @@ export default function Home() {
                 alt={deanGreeting.name}
                 fill
                 className="object-cover hover:scale-105 transition-transform duration-300"
+                sizes="(max-width: 640px) 112px, 144px"
                 priority
               />
             </div>
@@ -44,37 +48,37 @@ export default function Home() {
           </div>
 
           {/* Grid Layout: Main Message & PMB Banner */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start">
             {/* Left: Message Paragraphs */}
-            <div className="lg:col-span-8 space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed italic border-l-4 border-amber-500 pl-4 sm:pl-6 py-1">
+            <div className="md:col-span-7 lg:col-span-8 space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed italic border-l-4 border-amber-500 pl-4 sm:pl-6 py-1">
               {deanGreeting.message.split("\n\n").map((para, idx) => (
                 <p key={idx}>{para}</p>
               ))}
             </div>
 
             {/* Right: PMB Banner Card */}
-            <div className="lg:col-span-4 w-full">
+            <div className="md:col-span-5 lg:col-span-4 w-full">
               <div className="w-full rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-2xl space-y-4 text-center">
                 <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/15 px-3 py-1 rounded-full border border-amber-500/30">
                   <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  PMB 2026/2027 Ongoing
+                  {pmbBannerHome.statusBadge}
                 </div>
 
                 <h3 className="text-xl font-extrabold text-white tracking-wide">
-                  Pendaftaran PMB Dibuka
+                  {pmbBannerHome.title}
                 </h3>
 
                 <p className="text-xs text-slate-300 leading-relaxed font-light">
-                  Penerimaan Mahasiswa Murni & Transisi S1 Teknik Sipil & Elektro. Pilihan Kelas Pagi, Sore, dan Akhir Pekan.
+                  {pmbBannerHome.description}
                 </p>
 
                 <div className="pt-2">
                   <PearlButton
-                    href="/pmb"
+                    href={pmbBannerHome.ctaHref}
                     size="md"
                     variant="amber"
                     className="w-full"
-                    label="Daftar PMB Sekarang →"
+                    label={pmbBannerHome.ctaLabel}
                   />
                 </div>
               </div>
@@ -84,7 +88,7 @@ export default function Home() {
       </section>
 
       {/* 4. Berita Terbaru */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-8 gap-4">
           <div>
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
@@ -104,44 +108,26 @@ export default function Home() {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
           {beritaFakultas.map((berita) => (
-            <GlassCard
+            <ExpandableCard
               key={berita.id}
-              className="hover:-translate-y-1.5 transition-all duration-300 overflow-hidden group shadow-md"
-              innerClassName="p-4 sm:p-5 flex flex-col justify-between h-full"
+              title={berita.judul}
+              src={berita.gambar}
+              description={berita.tanggal}
             >
               <div className="space-y-4">
-                {/* Image Container with Zoom effect */}
-                <div className="relative w-full h-48 rounded-xl overflow-hidden bg-slate-900 border border-stone-200 shadow-inner">
-                  <Image
-                    src={berita.gambar}
-                    alt={berita.judul}
-                    fill
-                    className="object-cover transition-transform duration-500 group-hover:scale-110"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
+                <div className="flex items-center justify-between text-xs text-slate-400 pb-2 border-b border-slate-700/80">
+                  <span>Diterbitkan oleh: <strong className="text-amber-400 font-bold">{berita.penulis}</strong></span>
+                  <span>{berita.tanggal}</span>
                 </div>
-
-                {/* Date & Title */}
-                <div className="space-y-2">
-                  <div className="text-[11px] text-stone-400 font-medium tracking-wide">
-                    📅 {berita.tanggal}
-                  </div>
-                  <h3 className="text-base sm:text-lg font-bold text-[#1B3A5C] group-hover:text-amber-600 transition-colors leading-snug line-clamp-2">
-                    {berita.judul}
-                  </h3>
-                  <p className="text-xs text-stone-600 line-clamp-3 leading-relaxed font-light">
-                    {berita.ringkasan}
-                  </p>
-                </div>
+                <h4 className="text-amber-300 font-extrabold text-lg">Ringkasan Berita & Liputan</h4>
+                <p className="text-slate-200 leading-relaxed">
+                  {berita.ringkasan}
+                </p>
+                <p className="text-slate-200 leading-relaxed">
+                  Melalui berbagai inisiatif akademik dan kemitraan industri nasional, Fakultas Teknik Universitas Palembang berkomitmen tinggi menyelenggarakan pendidikan unggul, fasilitas laboratorium terpadu, serta wadah inovasi mahasiswa di bidang teknik.
+                </p>
               </div>
-
-              {/* Footer Link */}
-              <div className="pt-3 mt-4 border-t border-stone-200/80 flex justify-end text-xs">
-                <span className="text-amber-800 font-bold group-hover:translate-x-1 transition-transform flex items-center gap-1 text-xs">
-                  Baca Selengkapnya →
-                </span>
-              </div>
-            </GlassCard>
+            </ExpandableCard>
           ))}
         </div>
       </section>
@@ -151,6 +137,9 @@ export default function Home() {
 
       {/* 6. Kemitraan */}
       <KemitraanSection />
+
+      {/* 7. Pertanyaan Umum (FAQ) */}
+      <FAQs />
     </div>
   );
 }

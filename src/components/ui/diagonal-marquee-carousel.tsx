@@ -22,37 +22,37 @@ export interface DiagonalMarqueeCarouselProps {
 const DEFAULT_CARDS: CardItem[] = [
   {
     id: 1,
-    url: "https://images.unsplash.com/photo-1581094794329-c8112a89af12?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Praktikum-Teknik Sipil.avif",
     title: "Praktikum Beton",
   },
   {
     id: 2,
-    url: "https://images.unsplash.com/photo-1475721027785-f74eccf877e2?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Benchmarking.avif",
     title: "Seminar Teknologi",
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1523580494863-6f3031224c94?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Yudisium.avif",
     title: "Wisuda Sarjana",
   },
   {
     id: 4,
-    url: "https://images.unsplash.com/photo-1485827404703-89b55fcc595e?auto=format&fit=crop&w=800&q=80",
-    title: "Lomba Robotika",
+    url: "/upload/publications/jurnal.avif",
+    title: "Publikasi Jurnal",
   },
   {
     id: 5,
-    url: "https://images.unsplash.com/photo-1531403009284-440f080d1e12?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Praktikum-Teknik Sipil.avif",
     title: "Lab Komputer",
   },
   {
     id: 6,
-    url: "https://images.unsplash.com/photo-1504917595217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Benchmarking.avif",
     title: "Workshop Pengelasan",
   },
   {
     id: 7,
-    url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&w=800&q=80",
+    url: "/upload/gallery/Yudisium.avif",
     title: "Kunjungan Industri",
   },
 ];

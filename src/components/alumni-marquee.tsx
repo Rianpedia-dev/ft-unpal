@@ -12,15 +12,24 @@ const ReviewCard = ({
   username,
   company,
   body,
+  profile,
   initials,
 }: AlumniReview) => {
   return (
     <GlassCard className="relative w-72 sm:w-84 min-h-[145px] shrink-0 cursor-pointer overflow-hidden transition-all hover:scale-[1.02]">
       <div className="flex flex-col justify-between gap-3 h-full p-0.5">
         <div className="flex flex-row items-center gap-3">
-          <div className="h-10 w-10 rounded-full bg-[#1B3A5C] text-amber-400 font-extrabold text-xs flex items-center justify-center shadow shrink-0">
-            {initials}
-          </div>
+          {profile ? (
+            <img
+              src={profile}
+              alt={name}
+              className="h-10 w-10 rounded-full object-cover shadow shrink-0 border border-amber-500/30"
+            />
+          ) : (
+            <div className="h-10 w-10 rounded-full bg-[#1B3A5C] text-amber-400 font-extrabold text-xs flex items-center justify-center shadow shrink-0">
+              {initials}
+            </div>
+          )}
           <div className="flex flex-col min-w-0">
             <p className="text-sm font-bold text-stone-900 truncate leading-snug">{name}</p>
             <p className="text-xs font-semibold text-amber-800 truncate">

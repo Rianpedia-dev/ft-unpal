@@ -35,9 +35,6 @@ export default function DosenCard({ dosen }: DosenCardProps) {
 
         {/* Bidang Keahlian */}
         <div className="w-full pt-3 border-t border-stone-200/60">
-          <p className="text-[11px] font-semibold text-stone-400 uppercase tracking-wider mb-2">
-            Bidang Keahlian:
-          </p>
           <div className="flex flex-wrap gap-1.5 justify-center">
             {dosen.keahlian.map((item, idx) => (
               <span

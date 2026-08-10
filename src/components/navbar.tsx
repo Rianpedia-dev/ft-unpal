@@ -1,69 +1,80 @@
 "use client";
 
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 import {
-  Home,
-  Building2,
-  Users,
-  GraduationCap,
-  Image as ImageIcon,
-  BookOpen,
-  PhoneCall,
-} from "lucide-react";
-import { NavBar, NavItem } from "@/components/ui/tubelight-navbar";
-import { siteConfig } from "@/data/site";
-import { PearlButton } from "@/components/ui/pearl-button";
+  Navbar as ResizableNavbar,
+  NavBody,
+  NavItems,
+  MobileNav,
+  NavbarLogo,
+  NavbarButton,
+  MobileNavHeader,
+  MobileNavToggle,
+  MobileNavMenu,
+} from "@/components/ui/resizable-navbar";
 
-const navItems: NavItem[] = [
-  { name: "Beranda", url: "/", icon: Home },
-  { name: "Profil", url: "/profil", icon: Building2 },
-  { name: "Civitas Akademika", url: "/civitas", icon: Users },
-  { name: "PMB", url: "/pmb", icon: GraduationCap },
-  { name: "Galeri", url: "/galeri", icon: ImageIcon },
-  { name: "Publikasi", url: "/publikasi", icon: BookOpen },
+const navItems = [
+  { name: "Beranda", link: "/" },
+  { name: "Profil", link: "/profil" },
+  { name: "Civitas", link: "/civitas" },
+  { name: "PMB", link: "/pmb" },
+  { name: "Galeri", link: "/galeri" },
+  { name: "Publikasi", link: "/publikasi" },
 ];
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <>
-      {/* Fixed Top Header Bar for Brand & CTA */}
-      <header className="fixed top-0 left-0 right-0 z-40 w-full border-b border-white/10 bg-[#1B3A5C]/85 backdrop-blur-md transition-all">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
-          {/* Brand / Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            <Image
-              src={siteConfig.logo}
-              alt={`Logo ${siteConfig.name} ${siteConfig.university}`}
-              width={44}
-              height={44}
-              className="h-11 w-11 object-contain transition-transform group-hover:scale-105"
-              priority
-            />
-            <div className="flex flex-col">
-              <span className="font-extrabold tracking-tight text-white text-lg sm:text-xl leading-tight">
-                {siteConfig.name}
-              </span>
-              <span className="text-xs font-medium text-amber-400 tracking-wider">
-                {siteConfig.university}
-              </span>
-            </div>
-          </Link>
-
-          {/* Kontak CTA Button */}
-          <div className="flex items-center gap-3">
-            <PearlButton
-              href="/kontak"
-              size="sm"
-              variant="blue"
-              label="Kontak"
-            />
-          </div>
+    <ResizableNavbar>
+      {/* Desktop Navigation */}
+      <NavBody>
+        <NavbarLogo />
+        <NavItems items={navItems} />
+        <div className="flex items-center gap-3">
+          <NavbarButton href="/kontak" variant="primary">
+            Kontak
+          </NavbarButton>
         </div>
-      </header>
+      </NavBody>
 
-      {/* Floating Tubelight Navbar */}
-      <NavBar items={navItems} />
-    </>
+      {/* Mobile Navigation */}
+      <MobileNav>
+        <MobileNavHeader>
+          <NavbarLogo />
+          <MobileNavToggle
+            isOpen={isMobileMenuOpen}
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          />
+        </MobileNavHeader>
+
+        <MobileNavMenu
+          isOpen={isMobileMenuOpen}
+          onClose={() => setIsMobileMenuOpen(false)}
+        >
+          {navItems.map((item, idx) => (
+            <Link
+              key={`mobile-link-${idx}`}
+              href={item.link}
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="relative text-stone-100 hover:text-amber-400 font-semibold py-1.5 transition-colors text-base"
+            >
+              <span className="block">{item.name}</span>
+            </Link>
+          ))}
+          <div className="flex w-full flex-col gap-3 pt-3 border-t border-slate-700/60">
+            <NavbarButton
+              href="/kontak"
+              onClick={() => setIsMobileMenuOpen(false)}
+              variant="primary"
+              className="w-full text-center"
+            >
+              Kontak
+            </NavbarButton>
+          </div>
+        </MobileNavMenu>
+      </MobileNav>
+    </ResizableNavbar>
   );
 }

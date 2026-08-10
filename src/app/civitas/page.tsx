@@ -6,20 +6,33 @@ import { GlassCard } from "@/components/ui/glass-card";
 export const metadata = {
   title: `Civitas Akademika | ${siteConfig.name} ${siteConfig.university}`,
   description:
-    "Jajaran Pimpinan Dekanat Fakultas Teknik Universitas Palembang (Dekan dan para Wakil Dekan).",
+    "Mari kenali jajaran Pimpinan Dekanat, Dosen pengajar, serta Staf Tenaga Kependidikan Fakultas Teknik Universitas Palembang.",
 };
 
 export default function CivitasPage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Header Banner */}
-      <section className="bg-gradient-to-r from-[#112236] to-[#1B3A5C] text-white py-24 sm:py-28">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4">
-          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight">
-            Civitas Akademika FT UNPAL
+      <section className="relative w-full flex items-center justify-center min-h-[320px] sm:min-h-[380px] lg:min-h-[420px] overflow-hidden bg-slate-950 text-white pt-24 pb-16 sm:pt-28 sm:pb-20 lg:pt-32 lg:pb-24 mb-8 sm:mb-12">
+        {/* Background Image */}
+        <div className="absolute inset-0 z-0">
+          <Image
+            src="/upload/background-header/civitas.avif"
+            alt="Civitas Background Header"
+            fill
+            priority
+            className="object-cover object-center"
+          />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#112236]/80 via-[#162B45]/70 to-[#1B3A5C]/80 z-10" />
+        </div>
+
+        <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-4 pt-4">
+          <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
+            Civitas Akademika <br className="hidden sm:inline" />
+            Fakultas Teknik Universitas Palembang
           </h1>
-          <p className="text-slate-300 text-base max-w-2xl mx-auto font-light">
-            Jajaran Pimpinan Dekanat Fakultas Teknik Universitas Palembang
+          <p className="text-slate-200 text-sm sm:text-base max-w-3xl mx-auto font-light leading-relaxed drop-shadow-sm">
+            Mari kenali lebih dekat jajaran Pimpinan Dekanat, para Dosen pengajar profesional, serta Staf Tenaga Kependidikan Fakultas Teknik Universitas Palembang.
           </p>
         </div>
       </section>
@@ -30,54 +43,49 @@ export default function CivitasPage() {
           {dekanatList.map((member) => (
             <GlassCard
               key={member.id}
-              style={{ backgroundColor: "#08101C" }}
-              innerStyle={{ backgroundColor: "#0E1A2B", color: "#FFFFFF" }}
-              innerClassName="border border-red-900/50 hover:border-red-500/70 p-5 space-y-3 rounded-2xl shadow-xl transition-all duration-300 hover:-translate-y-1.5"
+              className="hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl overflow-hidden"
+              innerClassName="p-5 space-y-4"
             >
               {/* Photo Box */}
-              <div className="relative w-full h-56 rounded-xl overflow-hidden bg-slate-800 border border-slate-700/50">
+              <div className="relative w-full h-64 sm:h-56 md:h-64 lg:h-56 rounded-xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner">
                 <Image
                   src={member.foto}
                   alt={member.nama}
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-top hover:scale-105 transition-transform duration-500"
                   sizes="(max-width: 768px) 100vw, 25vw"
                 />
               </div>
 
               {/* Name & Title Badge */}
               <div className="space-y-2 text-center pt-1">
-                <h3 className="text-base font-extrabold text-white leading-snug min-h-[44px] flex items-center justify-center">
+                <h3 className="text-base font-extrabold text-[#1B3A5C] leading-snug min-h-[44px] flex items-center justify-center">
                   {member.nama}
                 </h3>
 
                 <div>
-                  <span className="inline-block bg-white/10 text-amber-300 border border-amber-400/20 px-3.5 py-0.5 rounded-full text-[10px] font-extrabold tracking-widest uppercase">
+                  <span className="inline-block bg-amber-100 text-amber-900 border border-amber-200 px-3.5 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase">
                     {member.jabatan}
                   </span>
                 </div>
 
-                <p className="text-[11px] text-slate-400 font-mono tracking-wide">
+                <p className="text-[11px] text-stone-500 font-mono tracking-wide">
                   NIDN: {member.nidn}
                 </p>
               </div>
 
               {/* Divider */}
-              <div className="border-t border-slate-800 my-2" />
+              <div className="border-t border-stone-200/80 my-2" />
 
               {/* Details List */}
-              <div className="space-y-2 text-left text-[11px] text-slate-300 font-light pt-1">
+              <div className="space-y-2 text-left text-[11px] text-stone-600 font-normal pt-1">
                 <div className="flex items-start gap-2">
-                  <span className="text-slate-400 shrink-0">🔍</span>
-                  <span className="line-clamp-1">{member.keahlian}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-slate-400 shrink-0">🎓</span>
+                  <span className="text-stone-400 shrink-0">🎓</span>
                   <span className="line-clamp-2">{member.pendidikan}</span>
                 </div>
                 <div className="flex items-start gap-2">
-                  <span className="text-slate-400 shrink-0">✉️</span>
-                  <span className="truncate text-amber-400">{member.email}</span>
+                  <span className="text-stone-400 shrink-0">✉️</span>
+                  <span className="truncate text-amber-800 font-semibold">{member.email}</span>
                 </div>
               </div>
             </GlassCard>
