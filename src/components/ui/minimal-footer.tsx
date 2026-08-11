@@ -160,12 +160,12 @@ export function MinimalFooter() {
             </h4>
             <ul className="space-y-3 text-base text-slate-200">
               <li>
-                <Link href="/profil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
+                <Link href="/program-studi/teknik-sipil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
                   S1 Teknik Sipil
                 </Link>
               </li>
               <li>
-                <Link href="/profil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
+                <Link href="/program-studi/teknik-elektro" className="hover:text-amber-400 transition-colors inline-block py-0.5">
                   S1 Teknik Elektro
                 </Link>
               </li>

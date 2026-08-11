@@ -43,49 +43,53 @@ export default function CivitasPage() {
           {dekanatList.map((member) => (
             <GlassCard
               key={member.id}
-              className="hover:-translate-y-1.5 transition-all duration-300 shadow-md hover:shadow-xl overflow-hidden"
-              innerClassName="p-5 space-y-4"
+              className="hover:-translate-y-1 transition-all duration-300 shadow-md hover:shadow-lg overflow-hidden h-full"
+              innerClassName="p-4 space-y-2.5 flex flex-col justify-between h-full"
             >
-              {/* Photo Box */}
-              <div className="relative w-full h-64 sm:h-56 md:h-64 lg:h-56 rounded-xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner">
-                <Image
-                  src={member.foto}
-                  alt={member.nama}
-                  fill
-                  className="object-cover object-top hover:scale-105 transition-transform duration-500"
-                  sizes="(max-width: 768px) 100vw, 25vw"
-                />
-              </div>
-
-              {/* Name & Title Badge */}
-              <div className="space-y-2 text-center pt-1">
-                <h3 className="text-base font-extrabold text-[#1B3A5C] leading-snug min-h-[44px] flex items-center justify-center">
-                  {member.nama}
-                </h3>
-
-                <div>
-                  <span className="inline-block bg-amber-100 text-amber-900 border border-amber-200 px-3.5 py-1 rounded-full text-[10px] font-extrabold tracking-widest uppercase">
-                    {member.jabatan}
-                  </span>
+              <div className="space-y-2.5">
+                {/* Photo Box */}
+                <div className="relative w-full h-56 sm:h-52 md:h-56 lg:h-52 rounded-xl overflow-hidden bg-stone-100 border border-stone-200 shadow-inner">
+                  <Image
+                    src={member.foto}
+                    alt={member.nama}
+                    fill
+                    className="object-cover object-top hover:scale-105 transition-transform duration-500"
+                    sizes="(max-width: 768px) 100vw, 25vw"
+                  />
                 </div>
 
-                <p className="text-[11px] text-stone-500 font-mono tracking-wide">
-                  NIDN: {member.nidn}
-                </p>
+                {/* Name & Title Badge */}
+                <div className="space-y-1 text-center">
+                  <h3 className="text-sm sm:text-base font-extrabold text-[#1B3A5C] leading-snug">
+                    {member.nama}
+                  </h3>
+
+                  <div>
+                    <span className="inline-block bg-amber-100 text-amber-900 border border-amber-200 px-3 py-0.5 rounded-full text-[10px] font-extrabold tracking-wider uppercase">
+                      {member.jabatan}
+                    </span>
+                  </div>
+
+                  <p className="text-[10px] sm:text-[11px] text-stone-500 font-mono leading-none">
+                    NIDN: {member.nidn}
+                  </p>
+                </div>
               </div>
 
-              {/* Divider */}
-              <div className="border-t border-stone-200/80 my-2" />
+              <div>
+                {/* Divider */}
+                <div className="border-t border-stone-200/80 my-1" />
 
-              {/* Details List */}
-              <div className="space-y-2 text-left text-[11px] text-stone-600 font-normal pt-1">
-                <div className="flex items-start gap-2">
-                  <span className="text-stone-400 shrink-0">🎓</span>
-                  <span className="line-clamp-2">{member.pendidikan}</span>
-                </div>
-                <div className="flex items-start gap-2">
-                  <span className="text-stone-400 shrink-0">✉️</span>
-                  <span className="truncate text-amber-800 font-semibold">{member.email}</span>
+                {/* Details List */}
+                <div className="space-y-0.5 text-left text-[11px] text-stone-600 font-normal">
+                  <div className="flex items-start gap-1.5">
+                    <span className="text-stone-400 shrink-0">🎓</span>
+                    <span className="line-clamp-2 leading-tight">{member.pendidikan}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="text-stone-400 shrink-0">✉️</span>
+                    <span className="truncate text-amber-800 font-semibold">{member.email}</span>
+                  </div>
                 </div>
               </div>
             </GlassCard>

@@ -25,11 +25,20 @@ interface NavBodyProps {
   visible?: boolean;
 }
 
+export interface SubNavItem {
+  name: string;
+  link: string;
+  description?: string;
+}
+
+export interface NavItem {
+  name: string;
+  link: string;
+  subItems?: SubNavItem[];
+}
+
 interface NavItemsProps {
-  items: {
-    name: string;
-    link: string;
-  }[];
+  items: NavItem[];
   className?: string;
   onItemClick?: () => void;
 }
@@ -120,23 +129,89 @@ export const NavItems = ({ items, className, onItemClick }: NavItemsProps) => {
         className,
       )}
     >
-      {items.map((item, idx) => (
-        <Link
-          onMouseEnter={() => setHovered(idx)}
-          onClick={onItemClick}
-          className="relative px-4 py-2 text-slate-100 hover:text-white transition-colors flex items-center gap-1.5 rounded-full"
-          key={`link-${idx}`}
-          href={item.link}
-        >
-          {hovered === idx && (
-            <motion.div
-              layoutId="hovered"
-              className="absolute inset-0 h-full w-full rounded-full bg-white/15 border border-white/20"
-            />
-          )}
-          <span className="relative z-20 font-medium">{item.name}</span>
-        </Link>
-      ))}
+      {items.map((item, idx) => {
+        const hasSubItems = item.subItems && item.subItems.length > 0;
+        const isHovered = hovered === idx;
+
+        return (
+          <div
+            key={`nav-wrapper-${idx}`}
+            className="relative"
+            onMouseEnter={() => setHovered(idx)}
+          >
+            <Link
+              onClick={(e) => {
+                if (item.link === "#") {
+                  e.preventDefault();
+                }
+                if (onItemClick) onItemClick();
+              }}
+              className="relative px-4 py-2 text-slate-100 hover:text-white transition-colors flex items-center gap-1.5 rounded-full cursor-pointer"
+              href={item.link}
+            >
+              {isHovered && (
+                <motion.div
+                  layoutId="hovered"
+                  className="absolute inset-0 h-full w-full rounded-full bg-white/15 border border-white/20"
+                />
+              )}
+              <span className="relative z-20 font-medium flex items-center gap-1">
+                {item.name}
+                {hasSubItems && (
+                  <svg
+                    className={cn(
+                      "w-3.5 h-3.5 transition-transform duration-200 text-amber-400",
+                      isHovered && "rotate-180"
+                    )}
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2.5}
+                      d="M19 9l-7 7-7-7"
+                    />
+                  </svg>
+                )}
+              </span>
+            </Link>
+
+            {/* Dropdown Menu */}
+            {hasSubItems && isHovered && (
+              <motion.div
+                initial={{ opacity: 0, y: 8, scale: 0.95 }}
+                animate={{ opacity: 1, y: 0, scale: 1 }}
+                exit={{ opacity: 0, y: 8, scale: 0.95 }}
+                transition={{ duration: 0.15 }}
+                className="absolute top-full left-1/2 -translate-x-1/2 pt-2 z-50 w-52"
+              >
+                <div className="bg-[#112236]/95 backdrop-blur-xl border border-amber-400/30 rounded-2xl p-1.5 shadow-2xl shadow-black/50 space-y-0.5">
+                  {item.subItems?.map((sub, sIdx) => (
+                    <Link
+                      key={`sub-${sIdx}`}
+                      href={sub.link}
+                      onClick={() => {
+                        setHovered(null);
+                        if (onItemClick) onItemClick();
+                      }}
+                      className="block px-3 py-2 rounded-xl hover:bg-white/10 transition-colors group/sub"
+                    >
+                      <div className="text-sm font-bold text-white group-hover/sub:text-amber-400 flex items-center justify-between">
+                        <span>{sub.name}</span>
+                        <span className="text-amber-400 opacity-0 group-hover/sub:opacity-100 transition-opacity text-xs">
+                          →
+                        </span>
+                      </div>
+                    </Link>
+                  ))}
+                </div>
+              </motion.div>
+            )}
+          </div>
+        );
+      })}
     </motion.div>
   );
 };

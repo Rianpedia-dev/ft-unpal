@@ -7,6 +7,8 @@ import {
   portalPMBUrl,
   timPMB,
   pmbMembersData,
+  rincianBiayaDetail,
+  faqItemsData,
 } from "@/data/pmb";
 import { siteConfig, contactInfo } from "@/data/site";
 import { PearlButton } from "@/components/ui/pearl-button";
@@ -191,61 +193,72 @@ export default function PMBPage() {
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-8 space-y-2">
           <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
-            Biaya Pendidikan
+            Rincian Biaya Pendidikan
           </h2>
           <p className="text-stone-600 text-sm">
-            Struktur pengelompokan biaya perkuliahan berdasarkan jalur dan jenis kelas pilihan
+            Rincian biaya perkuliahan resmi untuk Mahasiswa Murni dan Mahasiswa Transisi
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
-          {/* Mahasiswa Murni */}
-          <GlassCard className="hover:-translate-y-1 transition-transform">
-            <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-stone-200/60 pb-3">
-                <h3 className="text-lg font-extrabold text-[#1B3A5C]">
-                  Biaya Mahasiswa Murni
-                </h3>
-                <span className="text-xs font-bold bg-blue-100 text-blue-900 px-2.5 py-0.5 rounded-full">
-                  Lulusan SLTA
-                </span>
-              </div>
-              <ul className="space-y-2 text-xs sm:text-sm text-stone-700">
-                <li className="flex items-center gap-2 bg-white/60 p-3 rounded-xl border border-stone-200">
-                  <span className="text-amber-600 font-bold">▸</span>
-                  <span><strong>Kelas A</strong> (Pagi dan Sore)</span>
-                </li>
-                <li className="flex items-center gap-2 bg-white/60 p-3 rounded-xl border border-stone-200">
-                  <span className="text-amber-600 font-bold">▸</span>
-                  <span><strong>Kelas B</strong> (Jum'at - Sabtu)</span>
-                </li>
-              </ul>
-            </div>
-          </GlassCard>
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-5xl mx-auto">
+          {rincianBiayaDetail.map((b, idx) => (
+            <GlassCard
+              key={idx}
+              className="hover:-translate-y-1 transition-transform h-full"
+              innerClassName="p-6 space-y-5 flex flex-col justify-between h-full"
+            >
+              <div className="space-y-5">
+                {/* Header Card */}
+                <div className="flex justify-between items-center border-b border-stone-200/80 pb-4">
+                  <h3 className="text-xl font-extrabold text-[#1B3A5C]">
+                    {b.kategori}
+                  </h3>
+                  <span
+                    className={`text-xs font-extrabold px-3 py-1 rounded-full border ${
+                      idx === 0
+                        ? "bg-blue-100 text-blue-900 border-blue-200"
+                        : "bg-amber-100 text-amber-900 border-amber-200"
+                    }`}
+                  >
+                    {b.badgeText}
+                  </span>
+                </div>
 
-          {/* Mahasiswa Transisi */}
-          <GlassCard className="hover:-translate-y-1 transition-transform">
-            <div className="space-y-4">
-              <div className="flex justify-between items-center border-b border-stone-200/60 pb-3">
-                <h3 className="text-lg font-extrabold text-[#1B3A5C]">
-                  Biaya Mahasiswa Transisi
-                </h3>
-                <span className="text-xs font-bold bg-amber-100 text-amber-900 px-2.5 py-0.5 rounded-full">
-                  Pindahan / D3 ke S1
-                </span>
+                {/* List Rincian per Kelas */}
+                <div className="space-y-4">
+                  {b.rincianKelas.map((kelas, kIdx) => (
+                    <div
+                      key={kIdx}
+                      className="bg-white/80 rounded-2xl p-4 border border-stone-200/80 shadow-xs space-y-2.5"
+                    >
+                      <div className="flex items-center gap-2 border-b border-stone-100 pb-2">
+                        <span className="h-2.5 w-2.5 rounded-full bg-amber-500 shrink-0" />
+                        <h4 className="font-extrabold text-sm text-[#1B3A5C]">
+                          {kelas.namaKelas}
+                        </h4>
+                      </div>
+
+                      <div className="space-y-1.5 pt-0.5">
+                        {kelas.items.map((item, iIdx) => (
+                          <div
+                            key={iIdx}
+                            className="flex justify-between items-center text-xs sm:text-sm"
+                          >
+                            <span className="text-stone-600 font-medium">
+                              {item.label}
+                            </span>
+                            <span className="font-bold text-stone-900 font-mono">
+                              {item.nominal}
+                            </span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-              <ul className="space-y-2 text-xs sm:text-sm text-stone-700">
-                <li className="flex items-center gap-2 bg-white/60 p-3 rounded-xl border border-stone-200">
-                  <span className="text-amber-600 font-bold">▸</span>
-                  <span><strong>Kelas A</strong> (Pagi dan Sore)</span>
-                </li>
-                <li className="flex items-center gap-2 bg-white/60 p-3 rounded-xl border border-stone-200">
-                  <span className="text-amber-600 font-bold">▸</span>
-                  <span><strong>Kelas B</strong> (Jum'at - Sabtu)</span>
-                </li>
-              </ul>
-            </div>
-          </GlassCard>
+            </GlassCard>
+          ))}
         </div>
       </section>
 
@@ -319,7 +332,12 @@ export default function PMBPage() {
       </section>
 
       {/* 5. FAQS SECTION */}
-      <FAQs />
+      <FAQs
+        title="Pertanyaan Umum PMB"
+        description="Informasi penting seputar pendaftaran mahasiswa baru Fakultas Teknik Universitas Palembang."
+        items={faqItemsData}
+        helpdeskText="Helpdesk PMB FT UNPAL"
+      />
     </div>
   );
 }

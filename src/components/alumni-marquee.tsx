@@ -16,7 +16,7 @@ const ReviewCard = ({
   initials,
 }: AlumniReview) => {
   return (
-    <GlassCard className="relative w-72 sm:w-84 min-h-[145px] shrink-0 cursor-pointer overflow-hidden transition-all hover:scale-[1.02]">
+    <GlassCard className="relative w-72 sm:w-84 min-h-[160px] shrink-0 cursor-pointer overflow-hidden transition-all hover:scale-[1.02]">
       <div className="flex flex-col justify-between gap-3 h-full p-0.5">
         <div className="flex flex-row items-center gap-3">
           {profile ? (
@@ -32,9 +32,8 @@ const ReviewCard = ({
           )}
           <div className="flex flex-col min-w-0">
             <p className="text-sm font-bold text-stone-900 truncate leading-snug">{name}</p>
-            <p className="text-xs font-semibold text-amber-800 truncate">
-              {username} • <span className="text-stone-600 font-medium">{company}</span>
-            </p>
+            <p className="text-xs font-semibold text-amber-800 truncate">{username}</p>
+            <p className="text-xs text-stone-600 font-medium truncate">{company}</p>
           </div>
         </div>
         <p className="text-xs sm:text-sm text-stone-700 leading-relaxed italic">
@@ -52,8 +51,8 @@ export default function AlumniTestimonialMarquee() {
         <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1B3A5C]">
           Kisah Sukses Alumni Fakultas Teknik
         </h2>
-        <p className="text-stone-600 text-sm max-w-2xl mx-auto font-light">
-          Arahkan kursor ke atas kartu untuk menghentikan jalan (pause on hover).
+        <p className="text-stone-800 text-sm sm:text-base max-w-2xl mx-auto font-medium leading-relaxed">
+          Inspirasi karir, pengalaman berkesan, dan rekam jejak kiprah para lulusan FT UNPAL di berbagai sektor industri nasional.
         </p>
       </div>
 

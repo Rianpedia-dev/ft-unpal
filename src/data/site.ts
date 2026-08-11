@@ -25,6 +25,20 @@ export const siteConfig = {
 export const navigation = [
   { label: "Beranda", href: "/" },
   { label: "Profil", href: "/profil" },
+  {
+    label: "Program Studi",
+    href: "#",
+    subItems: [
+      {
+        label: "Teknik Sipil",
+        href: "/program-studi/teknik-sipil",
+      },
+      {
+        label: "Teknik Elektro",
+        href: "/program-studi/teknik-elektro",
+      },
+    ],
+  },
   { label: "Civitas", href: "/civitas" },
   { label: "PMB", href: "/pmb" },
   { label: "Galeri", href: "/galeri" },
@@ -128,37 +142,6 @@ export const statistics = [
 ];
 
 // ----------------------------------------------------------------------------
-// 6. QUICK LINKS / TAUTAN CEPAT LAYANAN KAMPUS
-// Edit link portal akademik, e-learning, perpustakaan, dan jadwal kuliah.
-// ----------------------------------------------------------------------------
-export const quickLinks = [
-  {
-    title: "Portal Mahasiswa",
-    description: "Akses informasi akademik, KRS, dan nilai.",
-    href: "https://portal.universitas-palembang.ac.id",
-    icon: "GraduationCap",
-  },
-  {
-    title: "Jadwal Kuliah",
-    description: "Lihat jadwal perkuliahan semester berjalan.",
-    href: "https://jadwal.universitas-palembang.ac.id",
-    icon: "Calendar",
-  },
-  {
-    title: "E-Learning",
-    description: "Akses materi kuliah dan tugas secara daring.",
-    href: "https://elearning.universitas-palembang.ac.id",
-    icon: "Monitor",
-  },
-  {
-    title: "Perpustakaan Digital",
-    description: "Cari referensi buku dan jurnal digital.",
-    href: "https://lib.universitas-palembang.ac.id",
-    icon: "BookOpen",
-  },
-];
-
-// ----------------------------------------------------------------------------
 // 7. SEJARAH FAKULTAS TEKNIK
 // Edit sejarah pendirian dan rekam jejak perkembangan fakultas di sini.
 // ----------------------------------------------------------------------------
@@ -187,13 +170,10 @@ export const visionMission = {
   ],
 };
 
-// ----------------------------------------------------------------------------
-// 9. MOTTO DAN TUJUAN STRATEGIS FAKULTAS
-// Edit motto resmi serta 4 pilar tujuan strategis fakultas.
-// ----------------------------------------------------------------------------
 export const mottoFakultas = {
   judul: "Motto Fakultas Teknik",
-  motto: "Mengintegrasikan Ilmu, Teknologi, dan Inovasi Untuk Membangun Peradaban yang Lebih Maju",
+  motto:
+    "Mengintegrasikan Ilmu, Teknologi, dan Inovasi Rekayasa untuk Menciptakan Sumber Daya Manusia Unggul dan Mewujudkan Pembangunan yang Maju dan Berkelanjutan.",
   deskripsi:
     "Komitmen Civitas Akademika Fakultas Teknik Universitas Palembang dalam mengembangkan sumber daya manusia teknik yang profesional, berintegritas, dan berwawasan masa depan.",
 };
@@ -203,59 +183,6 @@ export const tujuanFakultas = [
   "Meningkatkan kualitas dan kuantitas publikasi ilmiah serta hak kekayaan intelektual (HKI) berbasis penelitian terapan.",
   "Memperluas jangkauan pengabdian masyarakat guna memberikan solusi nyata bagi permasalahan infrastruktur dan teknologi di daerah.",
   "Mewujudkan tata kelola fakultas yang akuntabel, transparan, dan berbasis teknologi informasi terpadu.",
-];
-
-// ----------------------------------------------------------------------------
-// 10. DAFTAR PROGRAM STUDI S1
-// Edit rincian Prodi Teknik Sipil & Teknik Elektro, peminatan, karir, & kaprodi.
-// ----------------------------------------------------------------------------
-export const programStudiList = [
-  {
-    id: "sipil",
-    nama: "Teknik Sipil",
-    jenjang: "S1 (Sarjana Teknik)",
-    akreditasi: "Baik Sekali / B",
-    gelar: "S.T.",
-    deskripsi:
-      "Fokus pada perancangan infrastruktur modern, rekayasa struktur bangunan tinggi, manajemen proyek konstruksi, geoteknik, dan pengembangan teknik keairan.",
-    peminatan: [
-      "Rekayasa Struktur Bangunan",
-      "Manajemen Konstruksi & Proyek",
-      "Geoteknik & Rekayasa Tanah",
-      "Teknik Keairan & Infrastruktur Basah",
-    ],
-    prospek: [
-      "BUMN Konstruksi (WIKA, Adhi, HK)",
-      "Konsultan Struktur & Sipil",
-      "Project Manager",
-      "Dinas PUPR & Instansi Pemerintah",
-      "Kontraktor Swasta Nasional",
-    ],
-    kaprodi: "Dr. Ir. Hendra Wijaya, M.T.",
-  },
-  {
-    id: "elektro",
-    nama: "Teknik Elektro",
-    jenjang: "S1 (Sarjana Teknik)",
-    akreditasi: "Baik Sekali / B",
-    gelar: "S.T.",
-    deskripsi:
-      "Mempelajari pembangkit & sistem tenaga listrik, arus kuat, teknologi energi terbarukan (PLTS), sistem kontrol & robotika modern, serta telekomunikasi nirkabel.",
-    peminatan: [
-      "Sistem Tenaga & Arus Kuat",
-      "Energi Terbarukan (PLTS)",
-      "Robotika & Otomasi Industri PLC",
-      "Sistem Telekomunikasi & Network",
-    ],
-    prospek: [
-      "PT PLN (Persero)",
-      "Industri Otomasi & Manufaktur",
-      "Consultant Renewable Energy",
-      "Telecom Engineer",
-      "Embedded System Specialist",
-    ],
-    kaprodi: "Dr. Ir. Dewi Anggraini, M.T.",
-  },
 ];
 
 // ----------------------------------------------------------------------------
@@ -286,25 +213,53 @@ export const nilaiFakultas = [
 // Edit komponen logo dan penjelasan makna filosofis visualnya.
 // ----------------------------------------------------------------------------
 export const logoMakna = {
-  judul: "Logo Fakultas Teknik UNPAL & Makna Filosofis",
+  judul: "Makna Logo Fakultas Teknik Universitas Palembang",
   deskripsi:
-    "Identitas visual Fakultas Teknik Universitas Palembang menggabungkan simbolisme keteknikan, semangat akademis, dan kearifan lokal Sumatera Selatan.",
+    "Identitas visual Fakultas Teknik Universitas Palembang menggabungkan simbolisme keteknikan, semangat akademis, serta harapan dan nilai-nilai luhur institusi.",
   elemen: [
     {
-      nama: "Roda Gigi (Gear)",
-      makna: "Melambangkan dinamika industri, teknologi mesin, dan pergerakan pembangunan yang tiada henti.",
+      nama: "Bentuk Perisai / Kuning",
+      makna: "Melambangkan keteguhan, perlindungan, kejayaan, dan masa depan yang gemilang.",
     },
     {
-      nama: "Pena & Buku Terbuka",
-      makna: "Simbol fondasi ilmu pengetahuan, literasi riset, dan dedikasi akademis yang berkesinambungan.",
+      nama: "Lingkaran Merah",
+      makna: "Melambangkan semangat, keberanian, energi, dan daya juang dalam mengembangkan ilmu teknik.",
     },
     {
-      nama: "Warna Biru Navy (#1B3A5C)",
-      makna: "Mencerminkan kedalaman ilmu, ketenangan, profesionalisme, dan kepercayaan diri civitas akademika.",
+      nama: "Buku Terbuka",
+      makna: "Melambangkan pendidikan, ilmu pengetahuan, pembelajaran, dan keterbukaan terhadap perkembangan teknologi.",
     },
     {
-      nama: "Warna Keemasan / Amber (#F59E0B)",
-      makna: "Melambangkan kejayaan, prestasi tinggi, kemuliaan cita-cita, dan kontribusi emas bagi bangsa.",
+      nama: "Huruf “FT”",
+      makna: "Merupakan identitas Fakultas Teknik Universitas Palembang.",
+    },
+    {
+      nama: "Api",
+      makna: "Melambangkan semangat belajar, inovasi, kreativitas, dan ilmu pengetahuan yang terus menyala.",
+    },
+    {
+      nama: "Bintang",
+      makna: "Melambangkan cita-cita, harapan, prestasi, dan arah menuju masa depan yang lebih baik.",
+    },
+    {
+      nama: "Gelombang / Air",
+      makna: "Melambangkan identitas Kota Palembang serta dinamika pembangunan, khususnya yang berkaitan dengan infrastruktur dan lingkungan.",
+    },
+    {
+      nama: "Warna Hitam",
+      makna: "Melambangkan ketegasan, kekuatan, ketelitian, kestabilan, dan profesionalisme.",
+    },
+    {
+      nama: "Warna Merah",
+      makna: "Melambangkan keberanian, semangat, dan tekad untuk terus berkembang.",
+    },
+    {
+      nama: "Warna Kuning / Emas",
+      makna: "Melambangkan kejayaan, prestasi, optimisme, dan keunggulan.",
+    },
+    {
+      nama: "Tulisan “UNIVERSITAS PALEMBANG – FAKULTAS TEKNIK”",
+      makna: "Menegaskan identitas dan kedudukan Fakultas Teknik sebagai bagian dari Universitas Palembang.",
     },
   ],
 };
@@ -365,88 +320,6 @@ export const kemitraanList = [
 ];
 
 // ----------------------------------------------------------------------------
-// 14. STRUKTUR ORGANISASI PIMPINAN FAKULTAS
-// Edit jabatan dan nama pejabat pimpinan fakultas & prodi di sini.
-// ----------------------------------------------------------------------------
-export const organizationStructure = [
-  {
-    role: "Dekan",
-    name: "Marliyus Sunarhati, S.T., M.T.",
-  },
-  {
-    role: "Wakil Dekan I (Bidang Akademik)",
-    name: "Ir. Subianto, M.T.",
-  },
-  {
-    role: "Wakil Dekan II (Bidang Administrasi & Keuangan)",
-    name: "Rita Anggrainy, S.T., M.T.",
-  },
-  {
-    role: "Wakil Dekan III (Bidang Kemahasiswaan)",
-    name: "R. Ahmad Yani, S.T., M.T.",
-  },
-  {
-    role: "Kaprodi Teknik Sipil",
-    name: "Dr. Ir. Hendra Wijaya, M.T.",
-  },
-  {
-    role: "Kaprodi Teknik Mesin",
-    name: "Dr. Agus Prasetyo, S.T., M.T.",
-  },
-  {
-    role: "Kaprodi Teknik Elektro",
-    name: "Dr. Ir. Dewi Anggraini, M.T.",
-  },
-  {
-    role: "Kaprodi Teknik Informatika",
-    name: "Dr. Muhammad Rizki, S.Kom., M.Cs.",
-  },
-];
-
-// ----------------------------------------------------------------------------
-// 15. FASILITAS UTAMA KAMPUS FAKULTAS TEKNIK
-// Edit nama laboratorium, deskripsi, serta gambar laboratorium di sini.
-// ----------------------------------------------------------------------------
-export const facilities = [
-  {
-    name: "Laboratorium Struktur & Material",
-    description:
-      "Laboratorium untuk pengujian material konstruksi dan simulasi struktur bangunan.",
-    image: "/upload/gallery/Praktikum-Teknik Sipil.avif",
-  },
-  {
-    name: "Laboratorium Komputer",
-    description:
-      "Dilengkapi unit komputer dengan software engineering terkini untuk praktikum.",
-    image: "/upload/gallery/Benchmarking.avif",
-  },
-  {
-    name: "Laboratorium Mesin CNC",
-    description:
-      "Fasilitas permesinan modern dengan mesin CNC untuk praktikum mahasiswa Teknik Mesin.",
-    image: "/upload/gallery/Praktikum-Teknik Sipil.avif",
-  },
-  {
-    name: "Laboratorium Elektronika",
-    description:
-      "Laboratorium pengembangan rangkaian elektronik dan sistem embedded.",
-    image: "/upload/gallery/Benchmarking.avif",
-  },
-  {
-    name: "Perpustakaan Fakultas",
-    description:
-      "Koleksi lebih dari 15.000 buku teknik, jurnal, dan akses database digital.",
-    image: "/upload/publications/jurnal.avif",
-  },
-  {
-    name: "Ruang Kuliah Modern",
-    description:
-      "Ruang kelas ber-AC dengan proyektor dan konektivitas WiFi untuk pembelajaran interaktif.",
-    image: "/upload/gallery/Yudisium.avif",
-  },
-];
-
-// ----------------------------------------------------------------------------
 // 16. INFORMASI KONTAK RESMI & ALAMAT DEKANAT
 // Edit alamat, telepon, WhatsApp, email, jam operasional, dan link Google Maps.
 // ----------------------------------------------------------------------------
@@ -467,3 +340,46 @@ export const contactInfo = {
   mapEmbedUrl:
     "https://maps.google.com/maps?q=Universitas%20Palembang&t=&z=15&ie=UTF8&iwloc=&output=embed",
 };
+
+// ----------------------------------------------------------------------------
+// 17. PERTANYAAN UMUM FAKULTAS TEKNIK (FAQ BERANDA)
+// Edit pertanyaan & jawaban seputar profil, prodi, akreditasi, & fasilitas FT UNPAL.
+// ----------------------------------------------------------------------------
+export interface FAQItem {
+  id: string;
+  question: string;
+  answer: string;
+}
+
+export const faqFakultasData: FAQItem[] = [
+  {
+    id: "faq-ft-1",
+    question: "Apa saja Program Studi yang diselenggarakan di Fakultas Teknik UNPAL?",
+    answer:
+      "Fakultas Teknik Universitas Palembang menyelenggarakan dua Program Studi jenjang S1 unggulan yang terakreditasi BAN-PT, yaitu S1 Teknik Sipil dan S1 Teknik Elektro, dengan pilihan Kelas Reguler maupun Kelas Karyawan.",
+  },
+  {
+    id: "faq-ft-2",
+    question: "Bagaimana status akreditasi Fakultas Teknik Universitas Palembang?",
+    answer:
+      "Seluruh Program Studi di lingkungan Fakultas Teknik UNPAL telah terakreditasi resmi oleh Badan Akreditasi Nasional Perguruan Tinggi (BAN-PT) dengan peringkat Baik Sekali / B, serta menerapkan Kurikulum Berbasis OBE (Outcome-Based Education).",
+  },
+  {
+    id: "faq-ft-3",
+    question: "Apa saja fasilitas praktikum dan laboratorium yang tersedia?",
+    answer:
+      "FT UNPAL dilengkapi fasilitas Laboratorium Struktur & Bahan Konstruksi, Laboratorium Komputer & CAD Terpadu, Laboratorium Elektronika & Otomasi Industri, Laboratorium Mesin CNC, serta Perpustakaan Digital dengan koleksi ribuan referensi sains & keteknikan.",
+  },
+  {
+    id: "faq-ft-4",
+    question: "Bagaimana kerja sama Fakultas Teknik dengan dunia industri & BUMN?",
+    answer:
+      "Kami menjalin kemitraan strategis dengan berbagai BUMN dan industri nasional seperti PT Pusri, PT Kilang Pertamina Internasional, PT PLN (Persero), PT Bukit Asam Tbk, dan PT Waskita Karya untuk program magang MBKM, riset bersama, dan penyerapan lulusan.",
+  },
+  {
+    id: "faq-ft-5",
+    question: "Dimana lokasi Kampus Fakultas Teknik Universitas Palembang?",
+    answer:
+      "Kampus FT UNPAL berlokasi di lokasi strategis pusat kota Palembang, tepatnya di Jl. Dharmapala No. 1A, Bukit Besar, Kecamatan Ilir Barat I, Kota Palembang, Sumatera Selatan.",
+  },
+];

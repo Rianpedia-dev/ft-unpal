@@ -4,10 +4,22 @@ import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from '@/
 import Link from 'next/link';
 import { motion } from "framer-motion";
 import { GlassCard } from "@/components/ui/glass-card";
-import { faqItemsData } from "@/data/pmb";
+import { faqFakultasData, FAQItem } from "@/data/site";
 
-export default function FAQs() {
-  const faqItems = faqItemsData;
+interface FAQsProps {
+  items?: FAQItem[];
+  title?: string;
+  description?: string;
+  helpdeskText?: string;
+}
+
+export default function FAQs({
+  items,
+  title = "Pertanyaan Umum",
+  description = "Informasi penting seputar profil, program studi, dan fasilitas Fakultas Teknik Universitas Palembang.",
+  helpdeskText = "Layanan Informasi FT UNPAL",
+}: FAQsProps) {
+  const faqItems = items || faqFakultasData;
 
   return (
     <section className="py-8 md:py-12">
@@ -16,18 +28,18 @@ export default function FAQs() {
           <div className="grid gap-8 md:grid-cols-5 md:gap-12">
             <div className="md:col-span-2 space-y-4">
               <h2 className="text-[#1B3A5C] text-3xl md:text-4xl font-extrabold tracking-tight">
-                Pertanyaan Umum PMB
+                {title}
               </h2>
-              <p className="text-stone-600 text-sm md:text-base leading-relaxed">
-                Informasi penting seputar pendaftaran mahasiswa baru Fakultas Teknik Universitas Palembang.
+              <p className="text-stone-800 text-sm md:text-base font-medium leading-relaxed">
+                {description}
               </p>
               <p className="text-stone-500 text-sm hidden md:block pt-2">
-                Belum menemukan jawaban? Hubungi Tim{' '}
+                Belum menemukan jawaban? Hubungi{' '}
                 <Link
                   href="/kontak"
                   className="text-amber-800 font-bold hover:underline"
                 >
-                  Helpdesk PMB FT UNPAL
+                  {helpdeskText}
                 </Link>{' '}
                 untuk bantuan langsung.
               </p>
@@ -58,7 +70,7 @@ export default function FAQs() {
                 href="/kontak"
                 className="text-amber-800 font-bold hover:underline"
               >
-                Tim Helpdesk PMB FT UNPAL
+                {helpdeskText}
               </Link>
             </p>
           </div>

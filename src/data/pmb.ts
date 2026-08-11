@@ -19,12 +19,6 @@ export interface JenisKelas {
   durasi: string;
 }
 
-export interface BiayaPendidikan {
-  kategori: string;
-  kelasA: string;
-  kelasB: string;
-}
-
 export interface ProsedurStep {
   step: number;
   judul: string;
@@ -92,20 +86,57 @@ export const jenisKelas: JenisKelas[] = [
   },
 ];
 
-// ----------------------------------------------------------------------------
-// 3. SKEMA BIAYA PENDIDIKAN
-// Edit pengelompokan biaya kuliah untuk kelas A dan B.
-// ----------------------------------------------------------------------------
-export const rincianBiayaNew: BiayaPendidikan[] = [
+export interface RincianBiayaItem {
+  kategori: string;
+  badgeText: string;
+  rincianKelas: {
+    namaKelas: string;
+    items: { label: string; nominal: string }[];
+  }[];
+}
+
+export const rincianBiayaDetail: RincianBiayaItem[] = [
   {
     kategori: "Mahasiswa Murni",
-    kelasA: "Kelas A (Pagi & Sore)",
-    kelasB: "Kelas B (Jum'at - Sabtu)",
+    badgeText: "Lulusan SLTA",
+    rincianKelas: [
+      {
+        namaKelas: "Kelas A (Pagi dan Sore)",
+        items: [
+          { label: "Biaya Kuliah", nominal: "Rp 3.500.000" },
+          { label: "Orientasi Mahasiswa", nominal: "Rp 800.000" },
+        ],
+      },
+      {
+        namaKelas: "Kelas B (Jum'at-Sabtu)",
+        items: [
+          { label: "Biaya Kuliah", nominal: "Rp 4.000.000" },
+          { label: "Orientasi Mahasiswa", nominal: "Rp 800.000" },
+        ],
+      },
+    ],
   },
   {
     kategori: "Mahasiswa Transisi",
-    kelasA: "Kelas A (Pagi & Sore)",
-    kelasB: "Kelas B (Jum'at - Sabtu)",
+    badgeText: "Pindahan / D3 ke S1",
+    rincianKelas: [
+      {
+        namaKelas: "Kelas A (Pagi dan Sore)",
+        items: [
+          { label: "Biaya Kuliah", nominal: "Rp 4.500.000" },
+          { label: "Biaya Konversi", nominal: "Rp 1.000.000" },
+          { label: "Orientasi Mahasiswa", nominal: "Rp 800.000" },
+        ],
+      },
+      {
+        namaKelas: "Kelas B (Jum'at-Sabtu)",
+        items: [
+          { label: "Biaya Kuliah", nominal: "Rp 5.000.000" },
+          { label: "Biaya Konversi", nominal: "Rp 1.000.000" },
+          { label: "Orientasi Mahasiswa", nominal: "Rp 800.000" },
+        ],
+      },
+    ],
   },
 ];
 
@@ -188,7 +219,6 @@ export const pmbMembersData: PMBMember[] = [
 // Edit konten promo pendaftaran yang muncul di halaman utama (Beranda).
 // ----------------------------------------------------------------------------
 export const pmbBannerHome = {
-  statusBadge: "PMB 2026/2027 Ongoing",
   title: "Pendaftaran PMB Dibuka",
   description:
     "Penerimaan Mahasiswa Murni & Transisi S1 Teknik Sipil & Elektro. Pilihan Kelas Pagi, Sore, dan Akhir Pekan.",

@@ -2,7 +2,7 @@ import Image from "next/image";
 import HeroSection from "@/components/hero-section";
 import AlumniTestimonialMarquee from "@/components/alumni-marquee";
 import KemitraanSection from "@/components/kemitraan-section";
-import { deanGreeting } from "@/data/site";
+import { deanGreeting, faqFakultasData } from "@/data/site";
 import { beritaFakultas } from "@/data/publications";
 import { pmbBannerHome } from "@/data/pmb";
 import { PearlButton } from "@/components/ui/pearl-button";
@@ -18,53 +18,46 @@ export default function Home() {
 
       {/* 2. Sambutan Dekan */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard innerClassName="p-6 sm:p-8 space-y-8">
-          {/* Header Profile Dekan */}
-          <div className="flex flex-col sm:flex-row items-center sm:items-start gap-6 pb-6 border-b border-stone-200/80">
-            {/* Foto Dekan (Kotak & Lebih Besar) */}
-            <div className="relative w-28 h-28 sm:w-36 sm:h-36 shrink-0 rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-lg bg-[#1B3A5C]">
-              <Image
-                src={deanGreeting.photo}
-                alt={deanGreeting.name}
-                fill
-                className="object-cover hover:scale-105 transition-transform duration-300"
-                sizes="(max-width: 640px) 112px, 144px"
-                priority
-              />
-            </div>
-
-            {/* Information & Title */}
-            <div className="flex-1 text-center sm:text-left space-y-2 pt-1">
-              <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
-                Sambutan Dekan
-              </h2>
-              <h3 className="text-lg sm:text-xl font-bold text-stone-900">
-                {deanGreeting.name}
-              </h3>
-              <p className="text-xs sm:text-sm text-amber-800 font-semibold">
-                {deanGreeting.title}
-              </p>
-            </div>
+        <GlassCard innerClassName="p-6 sm:p-8 space-y-6">
+          {/* Header Judul Sambutan Dekan */}
+          <div className="flex flex-col sm:flex-row items-center justify-between border-b border-stone-200/80 pb-4 gap-2">
+            <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
+              Kata Sambutan Dekan
+            </h2>
+            <p className="text-xs sm:text-sm text-stone-700 font-semibold">
+              Fakultas Teknik Universitas Palembang
+            </p>
           </div>
 
-          {/* Grid Layout: Main Message & PMB Banner */}
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-start">
-            {/* Left: Message Paragraphs */}
-            <div className="md:col-span-7 lg:col-span-8 space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed italic border-l-4 border-amber-500 pl-4 sm:pl-6 py-1">
-              {deanGreeting.message.split("\n\n").map((para, idx) => (
-                <p key={idx}>{para}</p>
-              ))}
-            </div>
-
-            {/* Right: PMB Banner Card */}
-            <div className="md:col-span-5 lg:col-span-4 w-full">
-              <div className="w-full rounded-2xl p-6 sm:p-7 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-2xl space-y-4 text-center">
-                <div className="inline-flex items-center gap-1.5 text-[11px] font-bold uppercase tracking-wider text-amber-300 bg-amber-500/15 px-3 py-1 rounded-full border border-amber-500/30">
-                  <span className="h-1.5 w-1.5 rounded-full bg-amber-400 animate-pulse" />
-                  {pmbBannerHome.statusBadge}
+          {/* Main 2-Column Grid */}
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 lg:gap-8 items-stretch">
+            {/* Left Column: Profile Card & PMB Banner */}
+            <div className="md:col-span-5 lg:col-span-4 flex flex-col gap-6 justify-between">
+              {/* Profile Card */}
+              <div className="p-6 rounded-2xl bg-gradient-to-b from-stone-50 to-stone-100/90 border border-stone-200/80 text-center space-y-4 shadow-sm">
+                <div className="relative w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-md bg-[#1B3A5C]">
+                  <Image
+                    src={deanGreeting.photo}
+                    alt={deanGreeting.name}
+                    fill
+                    className="object-cover hover:scale-105 transition-transform duration-300"
+                    sizes="176px"
+                    priority
+                  />
                 </div>
+                <div className="space-y-1.5 pt-1">
+                  <h3 className="text-lg font-extrabold text-stone-900 leading-snug">
+                    {deanGreeting.name}
+                  </h3>
+                  <p className="text-xs text-amber-800 font-semibold leading-relaxed">
+                    {deanGreeting.title}
+                  </p>
+                </div>
+              </div>
 
-                <h3 className="text-xl font-extrabold text-white tracking-wide">
+              {/* PMB Banner Card */}
+              <div className="w-full rounded-2xl p-6 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-xl space-y-4 text-center">
+                <h3 className="text-lg font-extrabold text-white tracking-wide">
                   {pmbBannerHome.title}
                 </h3>
 
@@ -72,7 +65,7 @@ export default function Home() {
                   {pmbBannerHome.description}
                 </p>
 
-                <div className="pt-2">
+                <div className="pt-1">
                   <PearlButton
                     href={pmbBannerHome.ctaHref}
                     size="md"
@@ -81,6 +74,28 @@ export default function Home() {
                     label={pmbBannerHome.ctaLabel}
                   />
                 </div>
+              </div>
+            </div>
+
+            {/* Right Column: Full Sambutan Message */}
+            <div className="md:col-span-7 lg:col-span-8 bg-white/70 p-6 sm:p-8 rounded-2xl border border-stone-200/80 shadow-sm flex flex-col justify-between space-y-4">
+              <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
+                {deanGreeting.message.split("\n\n").map((para, idx) => {
+                  const total = deanGreeting.message.split("\n\n").length;
+                  const isHeaderOrFooter = idx === 0 || idx === total - 1;
+                  return (
+                    <p
+                      key={idx}
+                      className={
+                        isHeaderOrFooter
+                          ? "italic font-semibold text-[#1B3A5C]"
+                          : "text-stone-700 font-normal"
+                      }
+                    >
+                      {para}
+                    </p>
+                  );
+                })}
               </div>
             </div>
           </div>
@@ -94,7 +109,7 @@ export default function Home() {
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
               Berita Terbaru Fakultas
             </h2>
-            <p className="text-stone-600 text-sm font-light max-w-2xl">
+            <p className="text-stone-800 text-sm sm:text-base font-medium max-w-2xl leading-relaxed">
               Informasi kegiatan resmi, kerja sama industri, dan prestasi civitas akademika FT UNPAL.
             </p>
           </div>
@@ -139,7 +154,12 @@ export default function Home() {
       <KemitraanSection />
 
       {/* 7. Pertanyaan Umum (FAQ) */}
-      <FAQs />
+      <FAQs
+        title="Pertanyaan Umum Fakultas Teknik"
+        description="Informasi penting seputar profil, keunggulan, program studi, serta fasilitas praktikum di Fakultas Teknik Universitas Palembang."
+        items={faqFakultasData}
+        helpdeskText="Layanan Informasi FT UNPAL"
+      />
     </div>
   );
 }

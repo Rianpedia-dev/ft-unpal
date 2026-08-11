@@ -16,7 +16,7 @@ export default function KemitraanSection() {
         <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
           Kemitraan Strategis
         </h2>
-        <p className="text-stone-600 text-sm font-light leading-relaxed">
+        <p className="text-stone-800 text-sm sm:text-base font-medium leading-relaxed">
           Fakultas Teknik Universitas Palembang berkolaborasi aktif dengan BUMN, sektor energi, industri manufaktur, dan instansi pemerintah nasional.
         </p>
       </div>

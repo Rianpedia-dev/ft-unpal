@@ -5,7 +5,6 @@ import {
   visionMission,
   mottoFakultas,
   tujuanFakultas,
-  programStudiList,
   nilaiFakultas,
   siteConfig,
 } from "@/data/site";
@@ -23,7 +22,7 @@ export default function ProfilPage() {
   return (
     <div className="space-y-16 pb-16">
       {/* Header Banner */}
-      <section className="relative w-full flex items-center justify-center min-h-[220px] sm:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-slate-950 text-white pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-24 lg:pb-12 mb-6 sm:mb-8">
+      <section className="relative w-full flex items-center justify-center min-h-[220px] sm:min-h-[260px] lg:min-h-[290px] overflow-hidden bg-slate-950 text-white pt-20 pb-10 sm:pt-24 sm:pb-12 lg:pt-24 lg:pb-12">
         {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <Image
@@ -62,18 +61,17 @@ export default function ProfilPage() {
       </section>
 
       {/* Statistik Fakultas */}
-      <StatCounter />
+      <StatCounter className="-mt-16" />
 
       {/* 1. MOTTO FAKULTAS */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard innerClassName="p-6 sm:p-8 md:p-10 text-center space-y-4">
-          <div className="text-xs sm:text-sm font-extrabold uppercase tracking-widest text-amber-800">
+        <GlassCard innerClassName="p-6 sm:p-8 text-center space-y-3">
+          <div className="text-sm sm:text-base md:text-lg font-extrabold uppercase tracking-widest text-[#1B3A5C]">
             {mottoFakultas.judul}
           </div>
 
-          <h2 className="text-lg sm:text-2xl md:text-3xl font-extrabold tracking-tight leading-relaxed italic text-[#1B3A5C]">
-            "Mengintegrasikan Ilmu, Teknologi, dan Inovasi <br className="hidden sm:inline" />
-            Untuk Membangun Peradaban yang Lebih Maju"
+          <h2 className="text-base sm:text-lg md:text-xl font-bold tracking-tight leading-relaxed italic text-stone-800 max-w-4xl mx-auto">
+            "{mottoFakultas.motto}"
           </h2>
         </GlassCard>
       </section>
@@ -168,106 +166,7 @@ export default function ProfilPage() {
         </GlassCard>
       </section>
 
-      {/* 4. PROGRAM STUDI */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-3">
-          <h2 className="text-2xl sm:text-4xl font-extrabold text-[#1B3A5C]">
-            Program Studi Sarjana (S1)
-          </h2>
-          <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-            Dua program studi unggulan terakreditasi BAN-PT dengan kurikulum berbasis Outcome-Based Education (OBE) untuk mencetak sarjana teknik berkualitas & siap bersaing secara global.
-          </p>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {programStudiList.map((prodi, idx) => (
-            <div
-              key={idx}
-              className="group relative overflow-hidden rounded-3xl bg-white/90 backdrop-blur-md border border-stone-200 p-6 sm:p-8 shadow-xl hover:shadow-2xl hover:-translate-y-1.5 transition-all duration-300 flex flex-col justify-between"
-            >
-              <div className="space-y-6">
-
-                {/* Title & Icon */}
-                <div className="flex items-start justify-between gap-4">
-                  <div className="space-y-1">
-                    <h3 className="text-2xl sm:text-3xl font-extrabold text-[#112236] tracking-tight group-hover:text-[#1B3A5C] transition-colors">
-                      {prodi.nama}
-                    </h3>
-                    <p className="text-sm font-bold text-amber-700">
-                      Gelar Lulusan: {prodi.gelar} (Sarjana Teknik)
-                    </p>
-                  </div>
-                  <div className="h-12 w-12 rounded-2xl bg-[#112236] text-amber-400 flex items-center justify-center shrink-0 shadow-md group-hover:scale-110 group-hover:bg-amber-500 group-hover:text-[#112236] transition-all">
-                    {prodi.id === "sipil" ? (
-                      <Building2 className="size-6" />
-                    ) : (
-                      <Zap className="size-6" />
-                    )}
-                  </div>
-                </div>
-
-                {/* Deskripsi */}
-                <p className="text-stone-600 text-sm sm:text-base leading-relaxed">
-                  {prodi.deskripsi}
-                </p>
-
-                {/* Peminatan / Bidang Keahlian */}
-                <div className="space-y-2.5">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#112236] block">
-                    Bidang Keahlian & Peminatan:
-                  </span>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
-                    {prodi.peminatan.map((item, pIdx) => (
-                      <div
-                        key={pIdx}
-                        className="text-xs font-semibold bg-slate-100/80 text-stone-800 px-3 py-1.5 rounded-xl border border-slate-200/80 flex items-center gap-2"
-                      >
-                        <span className="text-amber-600 font-extrabold">✓</span>
-                        <span>{item}</span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Prospek Karir */}
-                <div className="space-y-2.5">
-                  <span className="text-xs font-extrabold uppercase tracking-wider text-[#112236] block">
-                    Prospek Karir Lulusan:
-                  </span>
-                  <div className="flex flex-wrap gap-2">
-                    {prodi.prospek.map((karir, kIdx) => (
-                      <span
-                        key={kIdx}
-                        className="inline-flex items-center gap-1.5 text-xs font-semibold bg-amber-500/10 text-amber-950 px-3 py-1.5 rounded-lg border border-amber-400/30"
-                      >
-                        <Briefcase className="size-3.5 text-amber-700 shrink-0" />
-                        <span>{karir}</span>
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-
-              {/* Kaprodi Footer Card */}
-              <div className="mt-8 pt-4 border-t border-stone-200/80 flex items-center justify-between bg-stone-50/90 p-4 rounded-2xl border border-stone-200">
-                <div className="flex items-center gap-3">
-                  <div className="h-10 w-10 rounded-xl bg-[#112236] text-amber-400 flex items-center justify-center shrink-0 shadow-xs">
-                    <UserCheck className="size-5" />
-                  </div>
-                  <div>
-                    <div className="text-[11px] font-bold uppercase tracking-wider text-stone-500">
-                      Ketua Program Studi
-                    </div>
-                    <div className="text-sm font-extrabold text-[#112236]">
-                      {prodi.kaprodi}
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
 
       {/* 5. NILAI-NILAI FAKULTAS */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">

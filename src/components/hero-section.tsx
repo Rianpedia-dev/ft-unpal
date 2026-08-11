@@ -21,7 +21,7 @@ export default function HeroSection() {
             </h1>
 
             {/* Subheading */}
-            <p className="text-base sm:text-lg text-slate-300 leading-relaxed max-w-xl font-light">
+            <p className="text-base sm:text-lg text-slate-200 leading-relaxed max-w-xl font-medium">
               Mencetak sarjana teknik yang kompeten, berdaya saing global, dan berintegritas tinggi.
             </p>
 
@@ -31,7 +31,7 @@ export default function HeroSection() {
                 href="/pmb"
                 size="lg"
                 variant="amber"
-                label="Pendaftaran PMB Online →"
+                label="Info Pendaftaran PMB →"
               />
               <PearlButton
                 href="/profil"
