@@ -158,7 +158,7 @@ export default function Home() {
         title="Pertanyaan Umum Fakultas Teknik"
         description="Informasi penting seputar profil, keunggulan, program studi, serta fasilitas praktikum di Fakultas Teknik Universitas Palembang."
         items={faqFakultasData}
-        helpdeskText="Layanan Informasi FT UNPAL"
+        helpdeskText="Layanan Informasi"
       />
     </div>
   );

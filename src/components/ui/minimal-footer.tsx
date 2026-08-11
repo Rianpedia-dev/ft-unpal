@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { siteConfig, contactInfo } from "@/data/site";
+import { siteConfig, contactInfo, navigation } from "@/data/site";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 const WhatsappIcon = () => (
@@ -24,17 +24,9 @@ const InstagramIcon = () => (
   </svg>
 );
 
-const TiktokIcon = () => (
+const FacebookIcon = () => (
   <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5">
-    <path d="M9 12a4 4 0 1 0 4 4V4a5 5 0 0 0 5 5" />
-  </svg>
-);
-
-const LinkedinIcon = () => (
-  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="size-5">
-    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
-    <rect width="4" height="12" x="2" y="9" />
-    <circle cx="4" cy="4" r="2" />
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
   </svg>
 );
 
@@ -54,6 +46,12 @@ const YoutubeIcon = () => (
 export function MinimalFooter() {
   const year = new Date().getFullYear();
 
+  const mainNavItems = navigation.filter(
+    (item) => item.href !== "#" && item.href !== "/kontak"
+  );
+  const prodiNavItem = navigation.find((item) => item.subItems);
+  const prodiSubItems = prodiNavItem?.subItems || [];
+
   return (
     <footer className="relative bg-[#112236] text-slate-100 border-t border-amber-500/30 pt-20 pb-12">
       <div className="mx-auto max-w-[115rem] px-6 sm:px-10 lg:px-16 xl:px-24">
@@ -67,7 +65,7 @@ export function MinimalFooter() {
                 alt={`Logo ${siteConfig.name}`}
                 width={48}
                 height={48}
-                className="h-12 w-12 object-contain bg-white/10 p-1 rounded-xl shadow"
+                className="h-12 w-12 object-contain drop-shadow-md"
               />
               <div className="flex flex-col">
                 <span className="font-heading font-extrabold text-2xl sm:text-3xl text-white tracking-tight leading-tight">
@@ -94,11 +92,8 @@ export function MinimalFooter() {
               <a href={contactInfo.socialMedia.instagram} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors transform hover:scale-110" aria-label="Instagram">
                 <InstagramIcon />
               </a>
-              <a href="#" className="text-slate-300 hover:text-amber-400 transition-colors transform hover:scale-110" aria-label="TikTok">
-                <TiktokIcon />
-              </a>
-              <a href={contactInfo.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors transform hover:scale-110" aria-label="LinkedIn">
-                <LinkedinIcon />
+              <a href={contactInfo.socialMedia.facebook} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors transform hover:scale-110" aria-label="Facebook">
+                <FacebookIcon />
               </a>
               <a href={contactInfo.socialMedia.twitter} target="_blank" rel="noopener noreferrer" className="text-slate-300 hover:text-amber-400 transition-colors transform hover:scale-110" aria-label="Twitter">
                 <TwitterIcon />
@@ -115,64 +110,53 @@ export function MinimalFooter() {
               Navigasi Cepat
             </h4>
             <ul className="space-y-2.5 text-base text-slate-200">
-              <li>
-                <Link href="/" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Beranda
-                </Link>
-              </li>
-              <li>
-                <Link href="/profil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Profil
-                </Link>
-              </li>
-              <li>
-                <Link href="/civitas" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Civitas
-                </Link>
-              </li>
-              <li>
-                <Link href="/pmb" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  PMB
-                </Link>
-              </li>
-              <li>
-                <Link href="/galeri" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Galeri
-                </Link>
-              </li>
-              <li>
-                <Link href="/publikasi" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Publikasi
-                </Link>
-              </li>
-              <li>
-                <Link href="/kontak" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Hubungi Kami
-                </Link>
-              </li>
+              {mainNavItems.map((nav, idx) => (
+                <li key={idx}>
+                  <Link href={nav.href} className="hover:text-amber-400 transition-colors inline-block py-0.5">
+                    {nav.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Col 3: Layanan Utama */}
+          {/* Col 3: Layanan Utama (Program Studi) */}
           <div className="col-span-1 lg:col-span-3 space-y-4">
             <h4 className="font-extrabold text-white text-xl tracking-wide border-b border-slate-700/60 pb-2.5">
-              Layanan Utama
+              Informasi
             </h4>
             <ul className="space-y-3 text-base text-slate-200">
+              {prodiSubItems.map((prodi, idx) => (
+                <li key={idx}>
+                  <Link href={prodi.href} className="hover:text-amber-400 transition-colors inline-block py-0.5">
+                    S1 {prodi.label}
+                  </Link>
+                </li>
+              ))}
               <li>
-                <Link href="/program-studi/teknik-sipil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  S1 Teknik Sipil
+                <Link href="/kontak" className="hover:text-amber-400 transition-colors inline-block py-0.5">
+                  Kontak
                 </Link>
               </li>
               <li>
-                <Link href="/program-studi/teknik-elektro" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  S1 Teknik Elektro
-                </Link>
+                <a
+                  href={siteConfig.universityUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-400 transition-colors inline-block py-0.5"
+                >
+                  Website Universitas
+                </a>
               </li>
               <li>
-                <Link href="/profil" className="hover:text-amber-400 transition-colors inline-block py-0.5">
-                  Laboratorium & Riset
-                </Link>
+                <a
+                  href={siteConfig.siakadUrl}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-amber-400 transition-colors inline-block py-0.5"
+                >
+                  SIAKAD (Portal Akademik)
+                </a>
               </li>
             </ul>
           </div>
@@ -185,7 +169,7 @@ export function MinimalFooter() {
             <ul className="space-y-4 text-base text-slate-200">
               <li className="flex items-start gap-3.5">
                 <MapPin className="size-5 sm:size-6 text-amber-400 shrink-0 mt-0.5" />
-                <span className="leading-snug">Palembang, Indonesia</span>
+                <span className="leading-snug">{contactInfo.address}</span>
               </li>
               <li className="flex items-center gap-3.5">
                 <Phone className="size-5 sm:size-6 text-amber-400 shrink-0" />

@@ -16,7 +16,7 @@ export default function HeroSection() {
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-100 leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               Selamat Datang di <br className="hidden sm:inline" />
               <span className="bg-gradient-to-r from-amber-300 via-amber-400 to-amber-200 bg-clip-text text-transparent">
-                Fakultas Teknik Universitas Palembang.
+                Fakultas Teknik Universitas Palembang
               </span>
             </h1>
 

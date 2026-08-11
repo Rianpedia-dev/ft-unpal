@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 export interface FeatureStep {
   step: string;
   title?: string;
-  content: string;
+  content?: string;
   image: string;
 }
 

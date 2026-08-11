@@ -35,6 +35,11 @@ export const metadata: Metadata = {
     "PMB UNPAL",
   ],
   authors: [{ name: siteConfig.university }],
+  icons: {
+    icon: siteConfig.logo,
+    shortcut: siteConfig.logo,
+    apple: siteConfig.logo,
+  },
 };
 
 export default function RootLayout({
