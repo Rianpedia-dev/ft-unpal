@@ -169,21 +169,21 @@ export default function ProfilPage() {
 
 
       {/* 5. NILAI-NILAI FAKULTAS */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-2xl mx-auto mb-10 space-y-2">
-          <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
+      <section className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 space-y-1.5 sm:space-y-2">
+          <h2 className="text-xl sm:text-3xl font-extrabold text-[#1B3A5C]">
             Nilai-Nilai Utama Fakultas
           </h2>
-          <p className="text-stone-600 text-sm">
+          <p className="text-stone-600 text-xs sm:text-sm">
             Prinsip dan karakter akademis yang menjiwai seluruh civitas akademika FT UNPAL
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-6">
           {nilaiFakultas.map((item, idx) => (
-            <GlassCard key={idx} className="hover:-translate-y-1 transition-all duration-300">
-              <div className="text-center py-2 flex flex-col items-center justify-center gap-3">
-                <div className="relative h-14 w-14 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center">
+            <GlassCard key={idx} className="hover:-translate-y-1 transition-all duration-300" innerClassName="p-3 sm:p-5">
+              <div className="text-center py-1 sm:py-2 flex flex-col items-center justify-center gap-2 sm:gap-3">
+                <div className="relative h-11 w-11 sm:h-16 sm:w-16 shrink-0 flex items-center justify-center">
                   <Image
                     src={item.iconSrc}
                     alt={item.nilai}
@@ -192,7 +192,7 @@ export default function ProfilPage() {
                     className="w-full h-full object-contain drop-shadow-md"
                   />
                 </div>
-                <h3 className="text-base font-extrabold text-[#1B3A5C] tracking-wider">
+                <h3 className="text-xs sm:text-base font-extrabold text-[#1B3A5C] tracking-wider">
                   {item.nilai}
                 </h3>
               </div>

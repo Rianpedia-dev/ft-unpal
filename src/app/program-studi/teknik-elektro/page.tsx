@@ -196,16 +196,16 @@ export default function TeknikElektroPage() {
               </h2>
             </div>
 
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-2.5 sm:gap-4">
               {prodi.prospekKerjaList.map((karir, idx) => (
                 <div
                   key={idx}
-                  className="p-5 rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md hover:border-amber-400/60 transition-all flex items-center gap-3.5 group"
+                  className="p-3 sm:p-5 rounded-xl sm:rounded-2xl bg-white border border-stone-200 shadow-sm hover:shadow-md hover:border-amber-400/60 transition-all flex flex-col items-center justify-center text-center gap-2 sm:gap-3 group h-full"
                 >
-                  <div className="h-10 w-10 rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors">
-                    <Briefcase className="size-5" />
+                  <div className="h-9 w-9 sm:h-10 sm:w-10 rounded-lg sm:rounded-xl bg-amber-500/10 text-amber-800 flex items-center justify-center shrink-0 group-hover:bg-amber-500 group-hover:text-white transition-colors">
+                    <Briefcase className="size-4 sm:size-5" />
                   </div>
-                  <h3 className="font-extrabold text-sm sm:text-base text-[#112236] leading-snug">
+                  <h3 className="font-extrabold text-xs sm:text-base text-[#112236] leading-tight text-center">
                     {karir.peran}
                   </h3>
                 </div>

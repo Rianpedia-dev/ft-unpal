@@ -6,12 +6,12 @@ import { heroHighlights } from "@/data/site";
 
 export default function HeroSection() {
   return (
-    <section className="bg-[#1B3A5C] text-white min-h-[calc(100vh-4rem)] flex flex-col justify-between pt-16 sm:pt-20 lg:pt-24 pb-8 sm:pb-10">
+    <section className="bg-[#1B3A5C] text-white min-h-[calc(100vh-4rem)] flex flex-col justify-between pt-24 sm:pt-28 lg:pt-32 pb-8 sm:pb-10">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 w-full mt-2 lg:mt-4 mb-auto space-y-8 sm:space-y-12">
         {/* Top 2-Column Grid: Text & Slider */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           {/* Left Column: Headline & Content */}
-          <div className="lg:col-span-6 space-y-6">
+          <div className="lg:col-span-6 space-y-6 order-2 lg:order-1">
             {/* Headline */}
             <h1 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight text-slate-100 leading-tight drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
               Selamat Datang di <br className="hidden sm:inline" />
@@ -26,24 +26,26 @@ export default function HeroSection() {
             </p>
 
             {/* Call-to-Actions */}
-            <div className="pt-2 flex flex-col sm:flex-row gap-4 items-stretch sm:items-center">
+            <div className="pt-2 flex flex-row items-center gap-2.5 sm:gap-4">
               <PearlButton
                 href="/pmb"
-                size="lg"
+                size="md"
                 variant="amber"
-                label="Info Pendaftaran PMB →"
+                label="Info PMB →"
+                className="h-9.5 sm:h-11 px-3 sm:px-6 text-[11px] sm:text-sm font-bold"
               />
               <PearlButton
                 href="/profil"
-                size="lg"
+                size="md"
                 variant="blue"
-                label="Jelajahi Profil Fakultas"
+                label="Profil Fakultas"
+                className="h-9.5 sm:h-11 px-3 sm:px-6 text-[11px] sm:text-sm font-bold"
               />
             </div>
           </div>
 
           {/* Right Column: Card Image Slider */}
-          <div className="lg:col-span-6 w-full flex items-center justify-center">
+          <div className="lg:col-span-6 w-full flex items-center justify-center order-1 lg:order-2">
             <HeroSlider />
           </div>
         </div>

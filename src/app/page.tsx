@@ -56,7 +56,7 @@ export default function Home() {
               </div>
 
               {/* PMB Banner Card */}
-              <div className="w-full rounded-2xl p-6 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-xl space-y-4 text-center">
+              <div className="hidden md:block w-full rounded-2xl p-6 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-xl space-y-4 text-center">
                 <h3 className="text-lg font-extrabold text-white tracking-wide">
                   {pmbBannerHome.title}
                 </h3>
@@ -113,12 +113,14 @@ export default function Home() {
               Informasi kegiatan resmi, kerja sama industri, dan prestasi civitas akademika FT UNPAL.
             </p>
           </div>
-          <PearlButton
-            href="/publikasi"
-            size="md"
-            variant="blue"
-            label="Lihat Semua Berita →"
-          />
+          <div className="hidden sm:block">
+            <PearlButton
+              href="/publikasi"
+              size="md"
+              variant="blue"
+              label="Lihat Semua Berita →"
+            />
+          </div>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 sm:gap-8">
@@ -144,6 +146,16 @@ export default function Home() {
               </div>
             </ExpandableCard>
           ))}
+        </div>
+
+        {/* Mobile Button: Below News Grid */}
+        <div className="mt-6 flex justify-center sm:hidden">
+          <PearlButton
+            href="/publikasi"
+            size="md"
+            variant="blue"
+            label="Lihat Semua Berita →"
+          />
         </div>
       </section>
 

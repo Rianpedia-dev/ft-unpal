@@ -136,11 +136,14 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
           )}
 
           {/* Team Members Grid */}
-          <div className="relative z-10 mx-auto grid w-full max-w-5xl grid-cols-1 gap-8 md:grid-cols-3 lg:gap-10">
+          <div className="relative z-10 mx-auto grid w-full max-w-5xl grid-cols-2 gap-3 sm:gap-8 lg:gap-10 md:grid-cols-3">
             {members.map((member, index) => (
               <div
                 key={index}
-                className="group relative flex flex-col items-center justify-end overflow-hidden rounded-3xl bg-white p-6 text-center shadow-lg border border-stone-200/80 transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl"
+                className={cn(
+                  "group relative flex flex-col items-center justify-end overflow-hidden rounded-2xl sm:rounded-3xl bg-white p-3.5 sm:p-6 text-center shadow-lg border border-stone-200/80 transition-all duration-300 ease-in-out hover:scale-[1.02] hover:shadow-2xl",
+                  index === 2 && "col-span-2 md:col-span-1 w-full max-w-[240px] md:max-w-none mx-auto"
+                )}
                 style={{
                   backgroundColor:
                     index === 0
@@ -159,7 +162,7 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
 
                 {/* Member Image */}
                 <div
-                  className="relative z-10 h-36 w-36 overflow-hidden rounded-full border-4 border-transparent bg-stone-100 transition-all duration-500 ease-out group-hover:border-[#112236] group-hover:scale-105 shadow-md"
+                  className="relative z-10 h-24 w-24 sm:h-36 sm:w-36 overflow-hidden rounded-full border-2 sm:border-4 border-transparent bg-stone-100 transition-all duration-500 ease-out group-hover:border-[#112236] group-hover:scale-105 shadow-md shrink-0"
                   style={{ transitionDelay: `${index * 100}ms` }}
                 >
                   <img
@@ -169,25 +172,25 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                   />
                 </div>
 
-                <h3 className="relative z-10 mt-4 text-lg font-extrabold text-[#112236]">
+                <h3 className="relative z-10 mt-2.5 sm:mt-4 text-xs sm:text-lg font-extrabold text-[#112236] leading-snug">
                   {member.name}
                 </h3>
-                <p className="relative z-10 text-xs font-bold text-amber-800">
+                <p className="relative z-10 text-[10px] sm:text-xs font-bold text-amber-800">
                   {member.designation}
                 </p>
 
                 {/* Social Links */}
                 {member.socialLinks && member.socialLinks.length > 0 && (
-                  <div className="relative z-10 mt-4 flex items-center justify-center gap-3">
+                  <div className="relative z-10 mt-2.5 sm:mt-4 flex items-center justify-center gap-2 sm:gap-3">
                     {member.socialLinks.map((link, linkIndex) => (
                       <a
                         key={linkIndex}
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-[#112236] hover:text-amber-700 bg-white/90 border border-stone-200/90 p-2 rounded-full shadow-xs hover:shadow-md transform hover:scale-110 transition-all duration-200"
+                        className="text-[#112236] hover:text-amber-700 bg-white/90 border border-stone-200/90 p-1.5 sm:p-2 rounded-full shadow-xs hover:shadow-md transform hover:scale-110 transition-all duration-200"
                       >
-                        <link.icon className="h-6 w-6 sm:h-7 sm:w-7" />
+                        <link.icon className="h-4 w-4 sm:h-7 sm:w-7" />
                       </a>
                     ))}
                   </div>

@@ -99,7 +99,7 @@ export function ExpandableCard({
                     </motion.p>
                     <motion.h3
                       layoutId={`title-${title}-${id}`}
-                      className="font-extrabold text-white text-2xl sm:text-3xl leading-snug"
+                      className="font-extrabold text-white text-lg sm:text-2xl lg:text-3xl leading-snug"
                     >
                       {title}
                     </motion.h3>

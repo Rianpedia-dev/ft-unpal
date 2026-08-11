@@ -37,7 +37,7 @@ export default function GaleriPage() {
         {/* Header Text Content */}
         <div className="relative z-20 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center space-y-3 pt-4">
           <h1 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-white drop-shadow-[0_4px_16px_rgba(0,0,0,0.95)]">
-            Galeri Kegiatan Kampus
+            Galeri Kegiatan Fakultas
           </h1>
           <p className="text-slate-200 text-sm sm:text-base max-w-2xl mx-auto font-light drop-shadow-md">
             Kumpulan dokumentasi kegiatan, praktikum laboratorium, seminar nasional, prosesi wisuda, dan aktivitas mahasiswa Fakultas Teknik Universitas Palembang.
@@ -46,7 +46,7 @@ export default function GaleriPage() {
       </section>
 
       {/* Gallery Section */}
-      <section className="mx-auto max-w-[1600px] px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-[1600px] px-2.5 sm:px-6 lg:px-8">
         <GalleryGrid />
       </section>
     </div>

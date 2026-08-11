@@ -40,19 +40,21 @@ export default function PublikasiPage() {
       </section>
 
       {/* TABS NAVIGATION */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-wrap justify-center gap-3">
+      <section className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+        <div className="flex flex-row items-center justify-center gap-2.5 sm:gap-4 max-w-md mx-auto">
           <PearlButton
             size="md"
             variant={activeTab === "berita" ? "blue" : "outline"}
             onClick={() => setActiveTab("berita")}
-            label={`📰 Berita Fakultas (${beritaFakultas.length})`}
+            label={`📰 Berita (${beritaFakultas.length})`}
+            className="h-9.5 sm:h-11 px-3 sm:px-6 text-xs sm:text-sm font-bold"
           />
           <PearlButton
             size="md"
             variant={activeTab === "jurnal" ? "blue" : "outline"}
             onClick={() => setActiveTab("jurnal")}
             label={`📚 Jurnal Ilmiah (${daftarJurnal.length})`}
+            className="h-9.5 sm:h-11 px-3 sm:px-6 text-xs sm:text-sm font-bold"
           />
         </div>
       </section>

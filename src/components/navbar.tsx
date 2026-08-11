@@ -72,77 +72,69 @@ export default function Navbar() {
             const hasSub = item.subItems && item.subItems.length > 0;
             const isSubOpen = openSubMenu === item.name;
 
-            return (
-              <div key={`mobile-nav-${idx}`} className="w-full space-y-1">
-                <div className="flex items-center justify-between">
-                  <Link
-                    href={item.link}
-                    onClick={(e) => {
-                      if (hasSub || item.link === "#") {
-                        e.preventDefault();
-                        setOpenSubMenu(isSubOpen ? null : item.name);
-                      } else {
-                        setIsMobileMenuOpen(false);
-                      }
-                    }}
-                    className="text-stone-100 hover:text-amber-400 font-semibold py-1.5 transition-colors text-base"
+            if (hasSub) {
+              return (
+                <div key={`mobile-nav-${idx}`} className="w-full space-y-2">
+                  <button
+                    type="button"
+                    onClick={() => setOpenSubMenu(isSubOpen ? null : item.name)}
+                    className="w-full flex items-center justify-center gap-2 py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 hover:border-amber-400/40 text-stone-100 font-semibold text-base transition-all duration-200 shadow-sm active:scale-[0.98] cursor-pointer"
                   >
-                    {item.name}
-                  </Link>
-
-                  {hasSub && (
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setOpenSubMenu(isSubOpen ? null : item.name)
-                      }
-                      className="p-1.5 text-amber-400 hover:bg-white/10 rounded-lg transition-colors"
-                      aria-label="Toggle Sub Menu"
+                    <span>{item.name}</span>
+                    <svg
+                      className={`w-4 h-4 text-amber-400 transition-transform duration-200 ${
+                        isSubOpen ? "rotate-180" : ""
+                      }`}
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
                     >
-                      <svg
-                        className={`w-4 h-4 transition-transform duration-200 ${
-                          isSubOpen ? "rotate-180" : ""
-                        }`}
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2.5}
-                          d="M19 9l-7 7-7-7"
-                        />
-                      </svg>
-                    </button>
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2.5}
+                        d="M19 9l-7 7-7-7"
+                      />
+                    </svg>
+                  </button>
+
+                  {/* Mobile Submenu Dropdown */}
+                  {isSubOpen && (
+                    <div className="flex flex-col items-center gap-2 py-1">
+                      {item.subItems.map((sub, sIdx) => (
+                        <Link
+                          key={`mobile-sub-${sIdx}`}
+                          href={sub.link}
+                          onClick={() => setIsMobileMenuOpen(false)}
+                          className="w-[90%] text-center py-2 px-4 rounded-xl bg-amber-400/10 border border-amber-400/30 text-amber-300 hover:bg-amber-400/20 font-bold text-sm transition-all shadow-xs active:scale-[0.98]"
+                        >
+                          {sub.name}
+                        </Link>
+                      ))}
+                    </div>
                   )}
                 </div>
+              );
+            }
 
-                {/* Mobile Submenu Dropdown */}
-                {hasSub && isSubOpen && (
-                  <div className="pl-4 ml-2 border-l-2 border-amber-400/40 space-y-2 py-1">
-                    {item.subItems.map((sub, sIdx) => (
-                      <Link
-                        key={`mobile-sub-${sIdx}`}
-                        href={sub.link}
-                        onClick={() => setIsMobileMenuOpen(false)}
-                        className="block py-1 px-2 text-sm font-medium text-slate-200 hover:text-amber-400 transition-colors"
-                      >
-                        <span className="text-amber-400 font-bold mr-1.5">•</span>
-                        {sub.name}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
+            return (
+              <Link
+                key={`mobile-nav-${idx}`}
+                href={item.link}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="w-full text-center py-2.5 px-4 rounded-xl bg-white/5 border border-white/10 hover:bg-white/15 hover:border-amber-400/40 text-stone-100 hover:text-amber-300 font-semibold text-base transition-all duration-200 shadow-sm active:scale-[0.98]"
+              >
+                {item.name}
+              </Link>
             );
           })}
-          <div className="flex w-full flex-col gap-3 pt-3 border-t border-slate-700/60">
+
+          <div className="w-full pt-2 border-t border-slate-700/60">
             <NavbarButton
               href="/kontak"
               onClick={() => setIsMobileMenuOpen(false)}
-              variant="primary"
-              className="w-full text-center"
+              variant="gradient"
+              className="w-full text-center py-3 text-base rounded-xl font-extrabold shadow-lg"
             >
               Kontak
             </NavbarButton>
