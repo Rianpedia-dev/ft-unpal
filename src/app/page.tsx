@@ -2,6 +2,7 @@ import Image from "next/image";
 import HeroSection from "@/components/hero-section";
 import AlumniTestimonialMarquee from "@/components/alumni-marquee";
 import KemitraanSection from "@/components/kemitraan-section";
+import DeanGreetingCard from "@/components/dean-greeting-card";
 import { deanGreeting, faqFakultasData } from "@/data/site";
 import { beritaFakultas } from "@/data/publications";
 import { pmbBannerHome } from "@/data/pmb";
@@ -34,26 +35,7 @@ export default function Home() {
             {/* Left Column: Profile Card & PMB Banner */}
             <div className="md:col-span-5 lg:col-span-4 flex flex-col gap-6 justify-between">
               {/* Profile Card */}
-              <div className="p-6 rounded-2xl bg-gradient-to-b from-stone-50 to-stone-100/90 border border-stone-200/80 text-center space-y-4 shadow-sm">
-                <div className="relative w-40 h-40 sm:w-44 sm:h-44 mx-auto rounded-2xl overflow-hidden border-2 border-amber-500/40 shadow-md bg-[#1B3A5C]">
-                  <Image
-                    src={deanGreeting.photo}
-                    alt={deanGreeting.name}
-                    fill
-                    className="object-cover hover:scale-105 transition-transform duration-300"
-                    sizes="176px"
-                    priority
-                  />
-                </div>
-                <div className="space-y-1.5 pt-1">
-                  <h3 className="text-lg font-extrabold text-stone-900 leading-snug">
-                    {deanGreeting.name}
-                  </h3>
-                  <p className="text-xs text-amber-800 font-semibold leading-relaxed">
-                    {deanGreeting.title}
-                  </p>
-                </div>
-              </div>
+              <DeanGreetingCard />
 
               {/* PMB Banner Card */}
               <div className="hidden md:block w-full rounded-2xl p-6 bg-gradient-to-br from-[#112236] via-[#1B3A5C] to-[#0D1D2D] text-white border border-amber-500/40 shadow-xl space-y-4 text-center">

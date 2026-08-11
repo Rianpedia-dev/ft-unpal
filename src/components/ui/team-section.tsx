@@ -1,5 +1,6 @@
 import * as React from "react";
 import { cn } from "@/lib/utils";
+import { TeamPhotoLightbox } from "@/components/ui/team-photo-lightbox";
 
 export interface SocialLink {
   icon: React.ElementType;
@@ -160,17 +161,8 @@ export const TeamSection = React.forwardRef<HTMLDivElement, TeamSectionProps>(
                   style={{ transitionDelay: `${index * 50}ms` }}
                 />
 
-                {/* Member Image */}
-                <div
-                  className="relative z-10 h-24 w-24 sm:h-36 sm:w-36 overflow-hidden rounded-full border-2 sm:border-4 border-transparent bg-stone-100 transition-all duration-500 ease-out group-hover:border-[#112236] group-hover:scale-105 shadow-md shrink-0"
-                  style={{ transitionDelay: `${index * 100}ms` }}
-                >
-                  <img
-                    src={member.imageSrc}
-                    alt={member.name}
-                    className="h-full w-full object-cover transition-transform duration-500 ease-out group-hover:scale-110"
-                  />
-                </div>
+                {/* Member Image - Clickable for Full Size Lightbox */}
+                <TeamPhotoLightbox imageSrc={member.imageSrc} name={member.name} />
 
                 <h3 className="relative z-10 mt-2.5 sm:mt-4 text-xs sm:text-lg font-extrabold text-[#112236] leading-snug">
                   {member.name}

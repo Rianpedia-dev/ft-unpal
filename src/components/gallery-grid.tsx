@@ -1,12 +1,54 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { createPortal } from "react-dom";
 import Image from "next/image";
 import { galleryItems, GalleryItem } from "@/data/gallery";
 import { PearlButton } from "@/components/ui/pearl-button";
 
 export default function GalleryGrid() {
   const [activeItem, setActiveItem] = useState<GalleryItem | null>(null);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
+
+  const modal = activeItem ? (
+    <div
+      className="fixed inset-0 z-[9999] flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-in fade-in"
+      onClick={() => setActiveItem(null)}
+    >
+      <div
+        className="relative max-w-3xl w-full max-h-[90vh] rounded-2xl bg-[#0F1E2E] p-3.5 sm:p-5 shadow-2xl border border-amber-500/30 text-white flex flex-col justify-between space-y-3"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Modal Header */}
+        <div className="flex items-center justify-between border-b border-slate-700/80 pb-2.5">
+          <span className="text-xs text-amber-400 font-mono font-bold tracking-wider">
+            {activeItem.date}
+          </span>
+          <PearlButton
+            size="sm"
+            variant="outline"
+            showSparkle={false}
+            onClick={() => setActiveItem(null)}
+            label="✕ Tutup"
+            className="h-7 sm:h-8 text-xs px-3"
+          />
+        </div>
+
+        {/* Image Container */}
+        <div className="relative w-full overflow-hidden rounded-xl bg-slate-950 flex items-center justify-center border border-slate-800">
+          <img
+            src={activeItem.image}
+            alt={activeItem.title || "Galeri Foto"}
+            className="w-full max-h-[70vh] object-contain rounded-xl"
+          />
+        </div>
+      </div>
+    </div>
+  ) : null;
 
   return (
     <div className="space-y-8">
@@ -29,7 +71,7 @@ export default function GalleryGrid() {
               />
 
               {/* Dark Gradient Overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1522]/80 via-transparent to-black/30 p-2.5 sm:p-4 flex flex-col justify-between" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#0B1522]/80 via-[#0B1522]/20 to-transparent p-2.5 sm:p-4 flex flex-col justify-between" />
 
               {/* Date Badge */}
               <div className="absolute top-2.5 right-2.5 sm:top-4 sm:right-4 z-10">
@@ -42,42 +84,7 @@ export default function GalleryGrid() {
         ))}
       </div>
 
-      {/* Lightbox Modal Dialog */}
-      {activeItem && (
-        <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black/85 p-4 backdrop-blur-md animate-in fade-in"
-          onClick={() => setActiveItem(null)}
-        >
-          <div
-            className="relative max-w-3xl w-full max-h-[90vh] rounded-2xl bg-[#0F1E2E] p-3.5 sm:p-5 shadow-2xl border border-amber-500/30 text-white flex flex-col justify-between space-y-3"
-            onClick={(e) => e.stopPropagation()}
-          >
-            {/* Modal Header */}
-            <div className="flex items-center justify-between border-b border-slate-700/80 pb-2.5">
-              <span className="text-xs text-amber-400 font-mono font-bold tracking-wider">
-                {activeItem.date}
-              </span>
-              <PearlButton
-                size="sm"
-                variant="outline"
-                showSparkle={false}
-                onClick={() => setActiveItem(null)}
-                label="✕ Tutup"
-                className="h-7 sm:h-8 text-xs px-3"
-              />
-            </div>
-
-            {/* Image Container */}
-            <div className="relative w-full overflow-hidden rounded-xl bg-slate-950 flex items-center justify-center border border-slate-800">
-              <img
-                src={activeItem.image}
-                alt={activeItem.title || "Galeri Foto"}
-                className="w-full max-h-[70vh] object-contain rounded-xl"
-              />
-            </div>
-          </div>
-        </div>
-      )}
+      {mounted && modal ? createPortal(modal, document.body) : null}
     </div>
   );
 }

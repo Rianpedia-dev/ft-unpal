@@ -4,6 +4,7 @@ import Link from "next/link";
 import { siteConfig } from "@/data/site";
 import { prodiDetailData } from "@/data/prodi";
 import { GlassCard } from "@/components/ui/glass-card";
+import ProdiProfileCard from "@/components/prodi-profile-card";
 import {
   Zap,
   Award,
@@ -85,34 +86,7 @@ export default function TeknikElektroPage() {
         <GlassCard>
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
             {/* Kaprodi Card (Sebelah Kiri) */}
-            <div className="lg:col-span-4 p-6 sm:p-8 rounded-3xl bg-gradient-to-b from-[#112236] to-[#1B3A5C] text-white shadow-2xl flex flex-col items-center justify-center text-center space-y-4 border border-amber-500/30 relative overflow-hidden h-full">
-              <div className="absolute -top-12 -left-12 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
-              <div className="absolute -bottom-12 -right-12 w-32 h-32 bg-amber-400/10 rounded-full blur-2xl pointer-events-none" />
-
-              <div className="relative h-44 w-36 sm:h-52 sm:w-44 rounded-2xl overflow-hidden border-2 border-amber-400 shadow-xl bg-slate-900 ring-4 ring-amber-400/20 my-1">
-                <Image
-                  src={prodi.kaprodi.foto}
-                  alt={prodi.kaprodi.nama}
-                  fill
-                  className="object-cover object-top"
-                />
-              </div>
-
-              <div className="space-y-1">
-                <h3 className="font-extrabold text-lg sm:text-xl text-amber-400 leading-snug">
-                  {prodi.kaprodi.nama}
-                </h3>
-                <p className="text-xs sm:text-sm font-medium text-slate-200">
-                  {prodi.kaprodi.gelar}
-                </p>
-              </div>
-
-              <div className="pt-2 border-t border-slate-700/60 w-full text-center">
-                <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-                  Fakultas Teknik UNPAL
-                </span>
-              </div>
-            </div>
+            <ProdiProfileCard kaprodi={prodi.kaprodi} />
 
             {/* Tentang Program Studi (Sebelah Kanan) */}
             <div className="lg:col-span-8 space-y-4">
