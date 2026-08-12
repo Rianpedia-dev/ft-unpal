@@ -41,7 +41,7 @@ export const prodiDetailData: Record<string, ProdiDetail> = {
     kaprodi: {
       nama: "Marliyus Sunarhati, S.T., M.T.",
       gelar: "Ketua Program Studi Teknik Sipil",
-      foto: "/upload/image-civitas/Marliyus Sunarhati, S.T., M.T.avif",
+      foto: "/upload/image-civitas/43.avif",
     },
     deskripsiLengkap:
       "Program Studi Teknik Sipil adalah cabang ilmu teknik yang berfokus pada perancangan, pembangunan, pemeliharaan, hingga renovasi berbagai infrastruktur fisik dan lingkungan, seperti gedung pencakar langit, jalan raya, jembatan, hingga bendungan. Mahasiswa di jurusan ini akan dibekali dengan kemampuan analitis tinggi yang mengandalkan prinsip matematika dan fisika (seperti mekanika teknik), sekaligus mempelajari berbagai perangkat lunak desain industri (seperti AutoCAD atau SAP2000). Ilmu ini umumnya dibagi menjadi lima konsentrasi utama, yaitu rekayasa struktur, geoteknik (ilmu tanah), manajemen konstruksi, teknik sumber daya air, dan rekayasa transportasi.\n\nKarena pembangunan dan pemeliharaan infrastruktur merupakan kebutuhan dasar setiap negara, lulusan Teknik Sipil memiliki prospek karier yang sangat luas dan stabil. Mereka dapat bekerja sebagai konsultan perencana yang membuat desain struktur di kantor, atau sebagai kontraktor pelaksana dan manajer proyek yang terjun langsung mengawasi jalannya konstruksi di lapangan. Selain di sektor swasta, sarjana Teknik Sipil juga sangat dibutuhkan di instansi pemerintahan seperti Kementerian PUPR atau BUMN bidang konstruksi.",
@@ -135,7 +135,7 @@ export const prodiDetailData: Record<string, ProdiDetail> = {
     kaprodi: {
       nama: "Dr. Ir. Dewi Anggraini, M.T.",
       gelar: "Ketua Program Studi Teknik Elektro",
-      foto: "/upload/image-civitas/Marliyus Sunarhati, S.T., M.T.avif",
+      foto: "/upload/image-civitas/43.avif",
     },
     deskripsiLengkap:
       "Program Studi Teknik Elektro adalah cabang ilmu teknik yang berfokus pada studi, perancangan, dan aplikasi sistem yang melibatkan kelistrikan, elektronika, dan elektromagnetisme. Mahasiswa di jurusan ini mempelajari cara membangkitkan, mendistribusikan, dan memanfaatkan energi listrik, mulai dari skala raksasa seperti jaringan pembangkit listrik hingga skala mikro seperti cip sirkuit di dalam smartphone. Perkuliahan Teknik Elektro sangat mengandalkan dasar matematika dan fisika terapan, di mana mahasiswanya dibekali kemampuan analitis untuk merancang perangkat keras (hardware), mengembangkan jaringan telekomunikasi, hingga memprogram sistem otomasi dan Internet of Things (IoT) yang menggerakkan berbagai teknologi modern.\n\nSecara umum, keilmuan ini terbagi dalam beberapa konsentrasi utama, yaitu teknik tenaga listrik (arus kuat), elektronika (arus lemah), telekomunikasi, dan sistem kendali atau robotika. Karena peradaban masa kini sangat bergantung pada energi listrik dan konektivitas digital, lulusan Teknik Elektro memiliki prospek karier yang sangat cerah dan fleksibel di berbagai sektor. Mereka sangat dibutuhkan oleh perusahaan energi dan utilitas (seperti PLN atau pengembang energi terbarukan), perusahaan telekomunikasi, industri manufaktur dan otomotif, perminyakan, hingga perusahaan teknologi multinasional sebagai engineer yang merancang teknologi masa depan.",
