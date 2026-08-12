@@ -18,10 +18,10 @@ export default function Home() {
       <HeroSection />
 
       {/* 2. Sambutan Dekan */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard innerClassName="p-6 sm:p-8 space-y-6">
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
+        <GlassCard innerClassName="px-0.5 py-2.5 sm:p-8 space-y-4 sm:space-y-6">
           {/* Header Judul Sambutan Dekan */}
-          <div className="flex flex-col sm:flex-row items-center justify-between border-b border-stone-200/80 pb-4 gap-2">
+          <div className="flex flex-col sm:flex-row items-center justify-between border-b border-stone-200/80 pb-4 pt-1 px-3 sm:px-0 gap-2">
             <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
               Kata Sambutan Dekan
             </h2>
@@ -60,7 +60,7 @@ export default function Home() {
             </div>
 
             {/* Right Column: Full Sambutan Message */}
-            <div className="md:col-span-7 lg:col-span-8 bg-white/70 p-6 sm:p-8 rounded-2xl border border-stone-200/80 shadow-sm flex flex-col justify-between space-y-4">
+            <div className="md:col-span-7 lg:col-span-8 bg-white/70 p-3 sm:p-8 rounded-2xl border border-stone-200/80 shadow-sm flex flex-col justify-between space-y-4">
               <div className="space-y-4 text-stone-700 text-sm sm:text-base leading-relaxed">
                 {deanGreeting.message.split("\n\n").map((para, idx) => {
                   const total = deanGreeting.message.split("\n\n").length;

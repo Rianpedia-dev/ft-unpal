@@ -64,8 +64,8 @@ export default function ProfilPage() {
       <StatCounter className="-mt-16" />
 
       {/* 1. MOTTO FAKULTAS */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard innerClassName="p-6 sm:p-8 text-center space-y-3">
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
+        <GlassCard innerClassName="px-2.5 py-4 sm:p-8 text-center space-y-3">
           <div className="text-sm sm:text-base md:text-lg font-extrabold uppercase tracking-widest text-[#1B3A5C]">
             {mottoFakultas.judul}
           </div>
@@ -77,8 +77,8 @@ export default function ProfilPage() {
       </section>
 
       {/* 2. SEJARAH */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard>
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
+        <GlassCard innerClassName="px-2.5 py-4 sm:p-8">
           <div className="space-y-6">
             <div className="border-b border-stone-200/60 pb-4">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
@@ -93,11 +93,11 @@ export default function ProfilPage() {
       </section>
 
       {/* 3. VISI DAN MISI */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
           {/* Visi */}
           <div className="md:col-span-5 flex">
-            <GlassCard className="h-full" innerClassName="flex flex-col justify-between space-y-6 w-full h-full">
+            <GlassCard className="h-full" innerClassName="px-3 py-4 sm:p-6 flex flex-col justify-between space-y-6 w-full h-full">
               <div className="space-y-4">
                 <div className="border-b border-stone-200/60 pb-3">
                   <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
@@ -116,7 +116,7 @@ export default function ProfilPage() {
 
           {/* Misi */}
           <div className="md:col-span-7 flex">
-            <GlassCard className="h-full" innerClassName="flex flex-col justify-between space-y-6 w-full h-full">
+            <GlassCard className="h-full" innerClassName="px-3 py-4 sm:p-6 flex flex-col justify-between space-y-6 w-full h-full">
               <div className="border-b border-stone-200/60 pb-3">
                 <h3 className="text-xl sm:text-2xl font-extrabold text-[#1B3A5C]">
                   Misi Fakultas
@@ -138,8 +138,8 @@ export default function ProfilPage() {
       </section>
 
       {/* 3. TUJUAN */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <GlassCard>
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
+        <GlassCard innerClassName="px-2.5 py-4 sm:p-8">
           <div className="space-y-6">
             <div className="border-b border-stone-200/60 pb-3">
               <h2 className="text-2xl sm:text-3xl font-extrabold text-[#1B3A5C]">
@@ -169,7 +169,7 @@ export default function ProfilPage() {
 
 
       {/* 5. NILAI-NILAI FAKULTAS */}
-      <section className="mx-auto max-w-7xl px-3 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
         <div className="text-center max-w-2xl mx-auto mb-6 sm:mb-10 space-y-1.5 sm:space-y-2">
           <h2 className="text-xl sm:text-3xl font-extrabold text-[#1B3A5C]">
             Nilai-Nilai Utama Fakultas
@@ -202,7 +202,7 @@ export default function ProfilPage() {
       </section>
 
       {/* 6. LOGO DAN MAKNA */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      <section className="mx-auto max-w-7xl px-1 sm:px-6 lg:px-8">
         <LogoAccordionSection />
       </section>
     </div>

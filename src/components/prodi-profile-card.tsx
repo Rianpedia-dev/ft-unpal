@@ -82,11 +82,6 @@ export default function ProdiProfileCard({ kaprodi }: ProdiProfileCardProps) {
           </p>
         </div>
 
-        <div className="pt-2 border-t border-slate-700/60 w-full text-center">
-          <span className="text-[11px] font-semibold text-slate-400 uppercase tracking-widest">
-            Fakultas Teknik UNPAL
-          </span>
-        </div>
       </div>
 
       {mounted && modal ? createPortal(modal, document.body) : null}

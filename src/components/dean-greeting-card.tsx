@@ -47,7 +47,7 @@ export default function DeanGreetingCard() {
 
   return (
     <>
-      <div className="p-6 rounded-2xl bg-gradient-to-b from-stone-50 to-stone-100/90 border border-stone-200/80 text-center space-y-4 shadow-sm">
+      <div className="p-3 sm:p-6 rounded-2xl bg-gradient-to-b from-stone-50 to-stone-100/90 border border-stone-200/80 text-center space-y-4 shadow-sm">
         {/* Photo Box - Clickable */}
         <div
           onClick={() => setShowPhotoModal(true)}

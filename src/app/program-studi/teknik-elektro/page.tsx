@@ -5,6 +5,7 @@ import { siteConfig } from "@/data/site";
 import { prodiDetailData } from "@/data/prodi";
 import { GlassCard } from "@/components/ui/glass-card";
 import ProdiProfileCard from "@/components/prodi-profile-card";
+import ProdiStatsGrid from "@/components/prodi-stats-grid";
 import {
   Zap,
   Award,
@@ -57,29 +58,12 @@ export default function TeknikElektroPage() {
       </section>
 
       {/* Ringkasan Identitas Prodi Grid */}
-      <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
-          <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/90 border border-stone-200 shadow-sm space-y-0.5 sm:space-y-1">
-            <span className="text-[10px] sm:text-xs font-extrabold uppercase text-amber-700 tracking-wider">Masa Studi</span>
-            <p className="text-sm sm:text-lg font-extrabold text-[#112236]">{prodi.masaStudi}</p>
-          </div>
-
-          <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/90 border border-stone-200 shadow-sm space-y-0.5 sm:space-y-1">
-            <span className="text-[10px] sm:text-xs font-extrabold uppercase text-amber-700 tracking-wider">Akreditasi</span>
-            <p className="text-sm sm:text-lg font-extrabold text-[#112236]">{prodi.akreditasi}</p>
-          </div>
-
-          <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/90 border border-stone-200 shadow-sm space-y-0.5 sm:space-y-1">
-            <span className="text-[10px] sm:text-xs font-extrabold uppercase text-amber-700 tracking-wider">Beban Studi</span>
-            <p className="text-sm sm:text-lg font-extrabold text-[#112236]">{prodi.bebasSKS} SKS</p>
-          </div>
-
-          <div className="p-3.5 sm:p-5 rounded-xl sm:rounded-2xl bg-white/90 border border-stone-200 shadow-sm space-y-0.5 sm:space-y-1">
-            <span className="text-[10px] sm:text-xs font-extrabold uppercase text-amber-700 tracking-wider">Jumlah Alumni</span>
-            <p className="text-sm sm:text-lg font-extrabold text-[#112236]">{prodi.jumlahAlumni}</p>
-          </div>
-        </div>
-      </section>
+      <ProdiStatsGrid
+        masaStudi={prodi.masaStudi}
+        akreditasi={prodi.akreditasi}
+        bebasSKS={prodi.bebasSKS}
+        jumlahAlumni={prodi.jumlahAlumni}
+      />
 
       {/* Deskripsi & Sambutan Kaprodi */}
       <section className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
