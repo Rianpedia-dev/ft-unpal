@@ -102,9 +102,6 @@ export default function TeknikElektroPage() {
                   {prodi.visi}
                 </p>
               </div>
-              <div className="text-xs text-amber-800 font-bold pt-3 border-t border-stone-200/60">
-                ★ Berfokus pada Ketenagalistrikan & Otomasi Industri 4.0
-              </div>
             </GlassCard>
           </div>
 

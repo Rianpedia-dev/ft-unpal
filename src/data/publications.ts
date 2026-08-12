@@ -27,33 +27,23 @@ export interface Berita {
 export const daftarJurnal: Journal[] = [
   {
     id: "jur-1",
-    nama: "Jurnal Teknik Civilia & Lingkungan Palembang",
-    singkatan: "J-CIVILIA",
-    issn: "p-ISSN: 2355-1029 | e-ISSN: 2685-9981",
-    akreditasi: "SINTA 4",
+    nama: "Jurnal Teknik Elektro",
+    singkatan: "JTE",
+    issn: "p-ISSN: 2089-2950 | e-ISSN: 2715-565X",
+    akreditasi: "SINTA 5",
     deskripsi:
-      "Jurnal ilmiah berkala yang memuat hasil penelitian original di bidang teknik sipil, rekayasa struktur, geoteknik, dan manajemen air.",
-    url: "https://ejournal.universitas-palembang.ac.id/index.php/civilia",
+      "Jurnal Teknik Elektro  (JTE) published by the Electrical Engineering Study Program Faculty of Engineering, University of Palembang and distributed twice a year. Jurnal Teknik Elektro  (JTE) is dedicated to researchers and academics who intend publishing research, scientific ideas, and other original scientific ideas. JTE is a published scientific, open access, peer-reviewed, evidence-based journal by the Electrical Engineering Study Program, Faculty of Engineering, University of Palembang.",
+    url: "https://jurnal.unpal.ac.id/index.php/jte",
   },
   {
     id: "jur-2",
-    nama: "Jurnal Rekayasa Energi & Mekanika (JREM)",
-    singkatan: "JREM",
-    issn: "p-ISSN: 2407-3312 | e-ISSN: 2715-4421",
+    nama: "Jurnal Teknik Sipil",
+    singkatan: "JTS",
+    issn: "p-ISSN: 2089-2942 | e-ISSN: 2686-6676",
     akreditasi: "SINTA 4",
     deskripsi:
-      "Wadah publikasi artikel ilmiah tentang konversi energi, teknik manufaktur, perancangan mekanik, dan ilmu material.",
-    url: "https://ejournal.universitas-palembang.ac.id/index.php/jrem",
-  },
-  {
-    id: "jur-3",
-    nama: "Jurnal Sistem Informasi & Teknologi Elektro (J-SISTEL)",
-    singkatan: "J-SISTEL",
-    issn: "p-ISSN: 2580-0192 | e-ISSN: 2809-1234",
-    akreditasi: "SINTA 3",
-    deskripsi:
-      "Memuat artikel berkualitas di bidang jaringan tenaga listrik, elektro industri, telekomunikasi, dan sistem kecerdasan buatan.",
-    url: "https://ejournal.universitas-palembang.ac.id/index.php/sistel",
+      "Jurnal Teknik Sipil published by the Civil Engineering Study Program Faculty of Engineering, University of Palembang and distributed twice a year. Jurnal Teknik Sipil  is dedicated to researchers and academics who intend publishing research, scientific ideas, and other original scientific ideas. JTE is a published scientific, open access, peer-reviewed, evidence-based journal by the Civil Engineering Study Program, Faculty of Engineering, University of Palembang.",
+    url: "https://jurnal.unpal.ac.id/index.php/tekniksipil",
   },
 ];
 

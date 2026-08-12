@@ -40,7 +40,7 @@ export const prodiDetailData: Record<string, ProdiDetail> = {
     jumlahAlumni: "1.200+",
     kaprodi: {
       nama: "Marliyus Sunarhati, S.T., M.T.",
-      gelar: "Dekan Fakultas Teknik",
+      gelar: "Ketua Program Studi Teknik Sipil",
       foto: "/upload/image-civitas/Marliyus Sunarhati, S.T., M.T.avif",
     },
     deskripsiLengkap:

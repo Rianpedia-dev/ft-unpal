@@ -101,9 +101,6 @@ export default function TeknikSipilPage() {
                   {prodi.visi}
                 </p>
               </div>
-              <div className="text-xs text-amber-800 font-bold pt-3 border-t border-stone-200/60">
-                ★ Berfokus pada Rekayasa Infrastruktur Ramah Lingkungan
-              </div>
             </GlassCard>
           </div>
 

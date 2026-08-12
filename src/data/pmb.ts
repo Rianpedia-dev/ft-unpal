@@ -194,7 +194,7 @@ export const pmbMembersData: PMBMember[] = [
   {
     name: "Dr. Rudi Hartono, M.Eng.",
     designation: "Ketua Panitia PMB (WD III)",
-    imageSrc: "/upload/dekan.jpg",
+    imageSrc: "/upload/image-civitas/R. Ahmad Yani, S.T., M.T.avif",
     phone: timPMB.hotline,
     email: timPMB.email,
   },
