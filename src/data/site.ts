@@ -15,9 +15,9 @@ export const siteConfig = {
   logo: "/upload/logo-ft.avif",
   description:
     "Website resmi Fakultas Teknik Universitas Palembang — Pusat informasi akademik, profil fakultas, dan layanan pendaftaran mahasiswa baru.",
-  url: "https://ft.universitas-palembang.ac.id",
-  universityUrl: "https://universitas-palembang.ac.id",
-  siakadUrl: "https://siakad.universitas-palembang.ac.id",
+  url: "https://ftunpal.ac.id",
+  universityUrl: "https://unpal.ac.id",
+  siakadUrl: "https://siakad.unpal.ac.id",
 };
 
 // ----------------------------------------------------------------------------

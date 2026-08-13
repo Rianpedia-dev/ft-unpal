@@ -179,7 +179,7 @@ export const syaratTransisi: string[] = [
 // 6. PORTAL URL & INFORMASI TIM PANITIA PMB
 // Edit URL pendaftaran online, kontak hotline WhatsApp, email, dan panitia.
 // ----------------------------------------------------------------------------
-export const portalPMBUrl = "https://pmb.universitas-palembang.ac.id";
+export const portalPMBUrl = "https://pmb.unpal.ac.id";
 
 export const timPMB = {
   ketuaPanitia: "Dr. Rudi Hartono, S.T., M.Eng. (Wakil Dekan III)",
